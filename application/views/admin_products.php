@@ -47,18 +47,26 @@
 
         </div>
     </div>
-</div>
+    <div class="row">
+        <div class="nine columns">
+            <form>
+                <input type="text" name="search" placeholder="Search">
 
-<div class="container">
-    <div class="row" id="black_back">
-        <div class="ten columns" style="margin-top: 0%">
-           
         </div>
-        <div class="two columns" style="margin-top: 1%">
-            <a href="#">Log Off</a>
+        <div class="two columns">
+            <select>
+                <option value="in_process">Show All</option>
+                <option value="canceled">Order In Process</option>
+                <option value="shipped">Shipped</option>
+            </select>
+            </form>
         </div>
     </div>
 </div>
+
+
+
+
 
 <div class="container">
     <div class="row">
@@ -74,7 +82,7 @@
                         <th>Status</th>
                     </tr>
                     <tr>
-                        <td>1</td>
+                        <td><a href="#">1</a></td>
                         <td>Steve Jobs</td>
                         <td>01/15/2015</td>
                         <td>1 Infinity Loop</td>
@@ -88,7 +96,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <td>2</td>
+                        <td><a href="#">1</a></td>
                         <td>Michael Choi</td>
                         <td>3/20/2015</td>
                         <td>1980 Zanker Road</td>
@@ -102,7 +110,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <td>3</td>
+                        <td><a href="#">1</a></td>
                         <td>Wiz Kalifa</td>
                         <td>12/14/2015</td>
                         <td>Two Dazed Court</td>
@@ -116,7 +124,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <td>4</td>
+                        <td><a href="#">1</a></td>
                         <td>Sample Name</td>
                         <td>12/13/2015</td>
                         <td>1 Infinity Loop</td>
@@ -149,7 +157,7 @@
         </div>
 
     </div>
-    <a href="#"><button>Log Off</button></a>
+    <a href="#"><button class="button-primary">Log Off</button></a>
 </div>
 
 
