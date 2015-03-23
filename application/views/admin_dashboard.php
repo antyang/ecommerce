@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Admin Login</title>
+    <title>Admin Dashboard</title>
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,30 +11,38 @@
     <link rel="stylesheet" href="/assets/css/skeleton.css">
 
     <style>
-        #banner_picture{
-            height: 100px;
+        li ul{
+            display: inline-block;
+            padding: 20px;
         }
-        h2{
-            display: inline-block; vertical-align: top;
-            padding-top:20px;
-            padding-left: 30px;
+        li{
+            list-style-type:none;
+            color: white;
+            font-weight:bold;
         }
-        h3{
-            color:darkblue;
+        #black_back{
+            background-color: black;
+            height: 70px;
         }
-        .red{
-            color: red;
-            text-align: center;
-        }
-
-
     </style>
 </head>
 <body>
 <div class="container">
+    <div class="row" id="black_back">
+        <div class="ten columns" style="margin-top: 0%">
+           <li>
+               <ul><a href="#">Dashboard</a></ul>
+               <ul><a href="#">Orders</a></ul>
+               <ul><a href="#">Products</a></ul>
+           </li>
+        </div>
+        <div class="two columns" style="margin-top: 1%">
+            <a href="#">Log Off</a>
+        </div>
+    </div>
     <div class="row">
         <div class="twelve column" style="margin-top: 5%">
-<!--            <img src="#" id="banner_picture">-->
+            <img src="#" id="banner_picture">
             <h2>Admin Login</h2>
             <?="<p class='red'>".$this->session->flashdata('login_failed');?></p><br>
 

@@ -10,7 +10,8 @@ class Main extends CI_Controller {
 
 	public function index()
 	{
-		echo "Welcome to CodeIgniter. The default Controller is Main.php";
+        $this->load->view('admin_products');
+
 	}
 }
 
