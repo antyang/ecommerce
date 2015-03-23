@@ -11,7 +11,7 @@ class Main extends CI_Controller {
 	public function index()
 	{
 
-        $this->load->view('abc.php');
+        $this->load->view('admin_products');
 
 
 	}
