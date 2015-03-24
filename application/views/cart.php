@@ -18,19 +18,17 @@
  			$('#toggle').click(function(){
     			$("#toggle").replaceWith("<i class='fa fa-toggle-on' id='toggle'> Same as shipping</i>");
   				});
- 			$('#update').click(function(){
-    			$("#update").replaceWith("<i class='fa fa-refresh fa-spin' id='update'></i>");
-  				});
- 			$('#update1').click(function(){
-    			$("#update1").replaceWith("<i class='fa fa-refresh fa-spin' id='update'></i>");
-  				});
-		});
+ 			$(document).on('click', '.update', function(){
+    			$(this).replaceWith("<i class='fa fa-refresh fa-spin update'></i>");
+  				})
+  			});
 		
 	</script>
 
 	<style>
 		body{
 			margin-left: 20px;
+			/*font-family: pragmatapro;*/
 		}
 		.fa fa-user, a{
 			color: black;
@@ -51,18 +49,22 @@
 		}
 		#credit{
 			width: 50px;
-			margin: 0;
+			margin: auto;
+			float: left;
 		}
 	</style>
 </head>
 <body>
 <div class="container">
-	<div class="row" style="padding-left: 30px;">
-		<div class="ten columns">
-			<h3>eCommerce</h3>
+	<div class="row">
+		<div class="one columns">
+				<h3 style="border-bottom:1px solid black; width:84px;font-family:source code pro;">NAME</h3>
 		</div>
-		<div class="two columns">
-			<h5><a href="/main/dashboard"><i class="fa fa-user"></a></i> <i class="fa fa-shopping-cart"></i></h5>
+		<div class="one columns">
+				<h5 >link</h5>
+		</div>
+		<div class="ten columns">
+			<h5 style="float:right;"><a href="/main/dashboard"><i class="fa fa-user"></a></i> <i class="fa fa-shopping-cart"></i></h5>
 		</div>
 	</div>
 
@@ -78,7 +80,7 @@
 				<td>Black Belt for staff</td>
 				<td>$9.99</td>
 				<td><input type="number" name="numericInput" style="margin: auto;" size="2" min="0" max="20" value="0">
-					<i class="fa fa-refresh" id="update"></i><i class="fa fa-times" style="padding-left:10px;"></i>
+					<i class="fa fa-refresh update"></i><i class="fa fa-times" style="padding-left:10px;"></i>
 				</td>
 				<td>$9.99</td>
 			</tr>
@@ -86,7 +88,7 @@
 				<td>Black Belt for staff</td>
 				<td>$9.99</td>
 				<td><input type="number" name="numericInput" style="margin: auto;" size="2" min="0" max="20" value="0">
-					<i class="fa fa-refresh" id="update1"></i><i class="fa fa-times" style="padding-left:10px;"></i>
+					<i class="fa fa-refresh update"></i><i class="fa fa-times" style="padding-left:10px;"></i>
 				</td>
 				<td>$9.99</td>
 			</tr>
@@ -128,9 +130,9 @@
 						<input type="text" placeholder="City">
 						<input type="text" placeholder="State">
 						<input type="text" placeholder="Zipcode"><br>
-					<h6 style="margin:auto;">Choose your payment</h6>
-					<h3 id="credit"><i class="fa fa-credit-card"></i></h3>
-					<h4><a href=""><i class="fa fa-cc-paypal"></i></a></h4>		
+					<h6 style="margin:auto;font-family:hermit">Choose your payment</h6>
+					<h3 id="credit" ><i class="fa fa-credit-card"></i></h3>
+					<h4 style="font-size:36px;"><a href=""><i class="fa fa-cc-paypal"></i></a></h4>		
 						<div id="credit_payment">
 							<input type="text" placeholder="Card">
 							<input type="text" placeholder="Security Code">

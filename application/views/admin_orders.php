@@ -71,7 +71,7 @@
 <div class="container">
     <div class="row">
         <div class="twelve columns" style="margin-top: 5%">
-            <table>
+            <table class="u-full-width">
                 <thead>
                     <tr>
                         <th>Order ID</th>
