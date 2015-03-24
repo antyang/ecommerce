@@ -37,6 +37,18 @@ class Main extends CI_Controller {
     public function products(){
         $this->load->view('products');
     }
+
+//    -------------Login/Logoff-----------
+
+    public function login(){
+        $this->load->model('model');
+
+    }
+
+    public function logoff(){
+        $this->session->sess_destroy();
+        redirect('/');
+    }
 }
 
-//end of main controlle
+//end of main controller
