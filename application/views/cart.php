@@ -49,7 +49,10 @@
 			margin-bottom: 0px;
 			/*display: inline-block;*/
 		}
-
+		#credit{
+			width: 50px;
+			margin: 0;
+		}
 	</style>
 </head>
 <body>
@@ -125,8 +128,9 @@
 						<input type="text" placeholder="City">
 						<input type="text" placeholder="State">
 						<input type="text" placeholder="Zipcode"><br>
-					<h6>Choose your payment</h6>
-					<h3 id="credit" style="margin:auto;"><i class="fa fa-credit-card"></i><a href=""><h4><i class="fa fa-cc-paypal"></i></h4></a></h3>			
+					<h6 style="margin:auto;">Choose your payment</h6>
+					<h3 id="credit"><i class="fa fa-credit-card"></i></h3>
+					<h4><a href=""><i class="fa fa-cc-paypal"></i></a></h4>		
 						<div id="credit_payment">
 							<input type="text" placeholder="Card">
 							<input type="text" placeholder="Security Code">
