@@ -217,15 +217,17 @@ CREATE TABLE `products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `productname` varchar(255) DEFAULT NULL,
   `stock` int(11) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `price` float DEFAULT NULL,
   `sold` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `last_shipment` datetime DEFAULT NULL,
   `orders_id` int(11) NOT NULL,
   `orders_users_id` int(11) NOT NULL,
+  `last_shipment` datetime DEFAULT NULL,
   PRIMARY KEY (`id`,`orders_id`,`orders_users_id`),
   KEY `fk_products_orders1_idx` (`orders_id`,`orders_users_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -234,6 +236,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` VALUES (1,'pineapple_shirt',2,'https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3',9.99,NULL,'0000-00-00 00:00:00',NULL,0,0,NULL);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -317,7 +320,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Brian','Townsend','btownsend85@yahoo.com',NULL,1,NULL,NULL),(2,'Antony','Yang',NULL,NULL,1,NULL,NULL),(3,'Josh','Phuang',NULL,NULL,1,NULL,NULL);
+INSERT INTO `users` VALUES (1,'Brian','Townsend','btownsend85@yahoo.com','123',1,NULL,NULL),(2,'Antony','Yang',NULL,NULL,1,NULL,NULL),(3,'Josh','Phuang',NULL,NULL,1,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -330,4 +333,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-03-24 14:37:05
+-- Dump completed on 2015-03-24 16:35:02
