@@ -1,11 +1,32 @@
-delimiter $$
+-- phpMyAdmin SQL Dump
+-- version 4.1.14
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 24, 2015 at 09:34 PM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
 
-CREATE DATABASE `ecommerce` /*!40100 DEFAULT CHARACTER SET utf8 */$$
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
-delimiter $$
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
-CREATE TABLE `billings` (
+--
+-- Database: `ecommerce`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `billings`
+--
+
+CREATE TABLE IF NOT EXISTS `billings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `streetaddress` varchar(65) DEFAULT NULL,
   `unit` varchar(45) DEFAULT NULL,
@@ -15,12 +36,25 @@ CREATE TABLE `billings` (
   PRIMARY KEY (`id`,`users_id`,`cities_id`),
   KEY `fk_addresses_users_idx` (`users_id`),
   KEY `fk_addresses_cities1_idx` (`cities_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8$$
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
+--
+-- Dumping data for table `billings`
+--
 
-delimiter $$
+INSERT INTO `billings` (`id`, `streetaddress`, `unit`, `created_at`, `users_id`, `cities_id`) VALUES
+(1, '1 Infinity Loop', NULL, NULL, 0, 2),
+(2, '1980 Zanker Road', NULL, NULL, 0, 3),
+(3, '1 Hacker Way', NULL, NULL, 0, 0),
+(4, '953 Foxglove Drive', NULL, NULL, 0, 1);
 
-CREATE TABLE `categories` (
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `category` varchar(255) DEFAULT NULL,
   `products_id` int(11) NOT NULL,
@@ -28,35 +62,67 @@ CREATE TABLE `categories` (
   `products_orders_users_id` int(11) NOT NULL,
   PRIMARY KEY (`id`,`products_id`,`products_orders_id`,`products_orders_users_id`),
   KEY `fk_categories_products1_idx` (`products_id`,`products_orders_id`,`products_orders_users_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8$$
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
+--
+-- Dumping data for table `categories`
+--
 
-delimiter $$
+INSERT INTO `categories` (`id`, `category`, `products_id`, `products_orders_id`, `products_orders_users_id`) VALUES
+(1, 'Shirt', 0, 0, 0),
+(2, 'Hat', 0, 0, 0),
+(3, NULL, 0, 0, 0);
 
-CREATE TABLE `cities` (
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cities`
+--
+
+CREATE TABLE IF NOT EXISTS `cities` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cityname` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `states_id` int(11) NOT NULL,
   PRIMARY KEY (`id`,`states_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8$$
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
+--
+-- Dumping data for table `cities`
+--
 
-delimiter $$
+INSERT INTO `cities` (`id`, `cityname`, `created_at`, `updated_at`, `states_id`) VALUES
+(1, 'Sunnyvale', NULL, NULL, 1),
+(2, 'Mountain View', NULL, NULL, 1),
+(3, 'San Jose', NULL, NULL, 1),
+(4, 'Las Vegas', NULL, NULL, 2),
+(5, 'Los Angeles', NULL, NULL, 1),
+(6, 'San Francisco', NULL, NULL, 1),
+(7, 'Burbank', NULL, NULL, 1),
+(8, 'Anaheim', NULL, NULL, 1);
 
-CREATE TABLE `cities_has_states` (
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cities_has_states`
+--
+
+CREATE TABLE IF NOT EXISTS `cities_has_states` (
   `cities_id` int(11) NOT NULL,
   `states_id` int(11) NOT NULL,
   PRIMARY KEY (`cities_id`,`states_id`),
   KEY `fk_cities_has_states_states1_idx` (`states_id`),
   KEY `fk_cities_has_states_cities1_idx` (`cities_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8$$
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
 
-delimiter $$
+--
+-- Table structure for table `orders`
+--
 
-CREATE TABLE `orders` (
+CREATE TABLE IF NOT EXISTS `orders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ordertotal` float DEFAULT NULL,
   `orderstatus` int(11) DEFAULT NULL,
@@ -70,23 +136,29 @@ CREATE TABLE `orders` (
   PRIMARY KEY (`id`,`users_id`,`addresses_id`,`addresses_users_id`,`addresses_cities_id`),
   KEY `fk_orders_users1_idx` (`users_id`),
   KEY `fk_orders_addresses1_idx` (`addresses_id`,`addresses_users_id`,`addresses_cities_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8$$
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+-- --------------------------------------------------------
 
-delimiter $$
+--
+-- Table structure for table `orders_has_products`
+--
 
-CREATE TABLE `orders_has_products` (
+CREATE TABLE IF NOT EXISTS `orders_has_products` (
   `orders_id` int(11) NOT NULL,
   `products_id` int(11) NOT NULL,
   PRIMARY KEY (`orders_id`,`products_id`),
   KEY `fk_orders_has_products_products1_idx` (`products_id`),
   KEY `fk_orders_has_products_orders1_idx` (`orders_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8$$
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
 
-delimiter $$
+--
+-- Table structure for table `products`
+--
 
-CREATE TABLE `products` (
+CREATE TABLE IF NOT EXISTS `products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `productname` varchar(255) DEFAULT NULL,
   `stock` int(11) DEFAULT NULL,
@@ -98,12 +170,15 @@ CREATE TABLE `products` (
   `orders_users_id` int(11) NOT NULL,
   PRIMARY KEY (`id`,`orders_id`,`orders_users_id`),
   KEY `fk_products_orders1_idx` (`orders_id`,`orders_users_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8$$
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+-- --------------------------------------------------------
 
-delimiter $$
+--
+-- Table structure for table `shippings`
+--
 
-CREATE TABLE `shippings` (
+CREATE TABLE IF NOT EXISTS `shippings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `streetaddress` varchar(65) DEFAULT NULL,
   `unit` varchar(45) DEFAULT NULL,
@@ -113,21 +188,45 @@ CREATE TABLE `shippings` (
   PRIMARY KEY (`id`,`users_id`,`cities_id`),
   KEY `fk_shipping_users1_idx` (`users_id`),
   KEY `fk_shipping_cities1_idx` (`cities_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8$$
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
+--
+-- Dumping data for table `shippings`
+--
 
-delimiter $$
+INSERT INTO `shippings` (`id`, `streetaddress`, `unit`, `created_at`, `users_id`, `cities_id`) VALUES
+(1, '1 Infinity Loop', NULL, NULL, 0, 2),
+(2, '1980 Zanker Road', NULL, NULL, 0, 3),
+(3, '1 Hacker Way', NULL, NULL, 0, 0),
+(4, '953 Foxglove Dr', NULL, NULL, 0, 1);
 
-CREATE TABLE `states` (
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `states`
+--
+
+CREATE TABLE IF NOT EXISTS `states` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `state` varchar(2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8$$
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
+--
+-- Dumping data for table `states`
+--
 
-delimiter $$
+INSERT INTO `states` (`id`, `state`) VALUES
+(1, 'CA'),
+(2, 'NV');
 
-CREATE TABLE `users` (
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(65) DEFAULT NULL,
   `last_name` varchar(65) DEFAULT NULL,
@@ -137,6 +236,17 @@ CREATE TABLE `users` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8$$
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
+--
+-- Dumping data for table `users`
+--
 
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `userlevel`, `created_at`, `updated_at`) VALUES
+(1, 'Brian', 'Townsend', 'btownsend85@yahoo.com', NULL, 1, NULL, NULL),
+(2, 'Antony', 'Yang', NULL, NULL, 1, NULL, NULL),
+(3, 'Josh', 'Phuang', NULL, NULL, 1, NULL, NULL);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
