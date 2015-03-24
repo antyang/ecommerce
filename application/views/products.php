@@ -165,7 +165,7 @@
         <div id="osx-modal-content">
        <div class="close"><a href="#" class="simplemodal-close">x</a></div>
             <div id="osx-modal-data">
-            <?php $this->load->view('product_show') ?>
+            <?php $this->load->view('product_page') ?>
                 <p><button class="simplemodal-close">Close</button> <span>(or press ESC or click the overlay)</span></p>
             </div>
         </div>
