@@ -11,14 +11,11 @@ class Main extends CI_Controller {
 
 	public function index()
 	{
-
-
         $this->load->view('splashpage.php');
 	}
 	public function edit(/*$id*/)
 	{
 		$this->load->view('edit_product');
-
 
 	}
 	public function cart()
@@ -33,7 +30,7 @@ class Main extends CI_Controller {
 	{
 		$this->load->view('admin_orders');
 	}
-		public function admin_products()
+	public function admin_products()
 	{
 		$this->load->view('admin_products');
 	}
