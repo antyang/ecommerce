@@ -2,20 +2,23 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Cart Page</title>
+	
+	<link rel="stylesheet" type="text/css" href="/assets/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/fontawesome/css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="/assets/css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="/assets/css/skeleton.css">
 	<style>
 		body{
 			margin-left: 20px;
 		}
-
+		
 	</style>
 </head>
 <body>
 <div class="container">
 	<div class="row">
 		<div class="eight columns"><h3>eCommerce</h3></div>
-		<div class="four columns"><h3>Shopping Cart()</h3></div>
+		<div class="four columns"><h3><i class="fa fa-shopping-cart"></i></h3></div>
 	</div>
 
 <div class="row">
