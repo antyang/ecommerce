@@ -24,7 +24,7 @@
 	<div class="jumbotron">
   		<h1>Welcome</h1>
  		<!-- <p></p> -->
- 		<p><a class="btn btn-primary btn-lg" href="/" role="button">Enter</a></p>
+ 		<p><a class="btn btn-primary btn-lg" href="/main/products" role="button">Enter</a></p>
 	</div>
 </div>
 </html>
