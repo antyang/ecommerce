@@ -7,10 +7,20 @@
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/assets/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/fontawesome/css/font-awesome.css">
     <link rel="stylesheet" href="/assets/css/normalize.css">
     <link rel="stylesheet" href="/assets/css/skeleton.css">
 
     <style>
+        body{
+                margin-left: 20px;
+            /*font-family: pragmatapro;*/
+        }
+        .fa fa-user, a{
+            color: black;
+            margin-right: 10px;
+        }
         li ul{
             display: inline-block;
             padding: 20px;

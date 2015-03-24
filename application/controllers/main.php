@@ -39,10 +39,15 @@ class Main extends CI_Controller {
 	{
 		$this->load->view('admin_products');
 	}
-	
+
     public function products()
     {
         $this->load->view('products.php');
+    }
+
+    public function product_show()
+    {
+    	$this->load->view('product_show.php');
     }
 }
 
