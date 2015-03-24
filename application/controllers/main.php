@@ -5,10 +5,9 @@ class Main extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		//$this->load->model('???');
+		$this->load->model('storefront');
 		//$this->output->enable_profiler();
 	}
-
 	public function index()
 	{
         $this->load->view('splashpage.php');
@@ -16,7 +15,6 @@ class Main extends CI_Controller {
 	public function edit(/*$id*/)
 	{
 		$this->load->view('edit_product');
-
 	}
 	public function cart()
 	{
@@ -26,6 +24,10 @@ class Main extends CI_Controller {
 	{
 		$this->load->view('admin_dashboard');
 	}
+	public function admin_dashboard()
+	{
+		$this->load->view('login');
+	}
 	public function admin_orders()
 	{
 		$this->load->view('admin_orders');
@@ -34,8 +36,22 @@ class Main extends CI_Controller {
 	{
 		$this->load->view('admin_products');
 	}
-    public function products(){
+    public function products()
+    {
         $this->load->view('products');
+    }
+    public function admin_login()
+    {
+    	$this->load->model('admin');
+    	$data = $this->admin->login_admin($this->input->post());
+    	if($data==null)
+    	{
+    		redirect('admin_login', array('error' => 'Invalid Username/Password'));
+    	}
+    	else
+    	{
+    		$this->load->view('admin_products');
+    	}
     }
 }
 

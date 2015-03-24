@@ -46,7 +46,7 @@
     <div class="row">
         <div class="four columns" style="margin-top: 5%">
             <h3>Login</h3>
-            <form action="#" method="post">
+            <form action="/main/admin_login" method="post">
                 <input type="email" name="email" placeholder="Email"><br>
                 <input type="password" name="password" placeholder="Password"><br>
                 <input type="submit" name="submit" value="Login" class="button-primary">

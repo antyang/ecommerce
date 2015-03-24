@@ -10,9 +10,8 @@
     {
         return $this->db->query('SELECT * FROM products ORDER BY sold DESC;');
     }
-    function login_user($data)
+    function login_admin($data)
     {
-    	// var_dump($email);
-    	return $this->db->query("SELECT * FROM users WHERE email = ? AND password = ? ", array($data['email'], $data['password']))->row_array();
+        return $this->db->query("SELECT * FROM users WHERE email = ? AND password = ?  AND userlevel = '1'", array($data['email'], $data['password']))->row_array();
     }
 }
