@@ -1,32 +1,28 @@
--- phpMyAdmin SQL Dump
--- version 4.1.14
--- http://www.phpmyadmin.net
+-- MySQL dump 10.13  Distrib 5.6.19, for osx10.7 (i386)
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 24, 2015 at 09:34 PM
--- Server version: 5.6.17
--- PHP Version: 5.5.12
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
+-- Host: localhost    Database: ecommerce
+-- ------------------------------------------------------
+-- Server version	5.5.38
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
-
---
--- Database: `ecommerce`
---
-
--- --------------------------------------------------------
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
 -- Table structure for table `billings`
 --
 
-CREATE TABLE IF NOT EXISTS `billings` (
+DROP TABLE IF EXISTS `billings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `billings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `streetaddress` varchar(65) DEFAULT NULL,
   `unit` varchar(45) DEFAULT NULL,
@@ -36,25 +32,27 @@ CREATE TABLE IF NOT EXISTS `billings` (
   PRIMARY KEY (`id`,`users_id`,`cities_id`),
   KEY `fk_addresses_users_idx` (`users_id`),
   KEY `fk_addresses_cities1_idx` (`cities_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `billings`
 --
 
-INSERT INTO `billings` (`id`, `streetaddress`, `unit`, `created_at`, `users_id`, `cities_id`) VALUES
-(1, '1 Infinity Loop', NULL, NULL, 0, 2),
-(2, '1980 Zanker Road', NULL, NULL, 0, 3),
-(3, '1 Hacker Way', NULL, NULL, 0, 0),
-(4, '953 Foxglove Drive', NULL, NULL, 0, 1);
-
--- --------------------------------------------------------
+LOCK TABLES `billings` WRITE;
+/*!40000 ALTER TABLE `billings` DISABLE KEYS */;
+INSERT INTO `billings` VALUES (1,'1 Infinity Loop',NULL,NULL,0,2),(2,'1980 Zanker Road',NULL,NULL,0,3),(3,'1 Hacker Way',NULL,NULL,0,0),(4,'953 Foxglove Drive',NULL,NULL,0,1);
+/*!40000 ALTER TABLE `billings` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `categories`
 --
 
-CREATE TABLE IF NOT EXISTS `categories` (
+DROP TABLE IF EXISTS `categories`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `category` varchar(255) DEFAULT NULL,
   `products_id` int(11) NOT NULL,
@@ -62,67 +60,102 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `products_orders_users_id` int(11) NOT NULL,
   PRIMARY KEY (`id`,`products_id`,`products_orders_id`,`products_orders_users_id`),
   KEY `fk_categories_products1_idx` (`products_id`,`products_orders_id`,`products_orders_users_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `category`, `products_id`, `products_orders_id`, `products_orders_users_id`) VALUES
-(1, 'Shirt', 0, 0, 0),
-(2, 'Hat', 0, 0, 0),
-(3, NULL, 0, 0, 0);
-
--- --------------------------------------------------------
+LOCK TABLES `categories` WRITE;
+/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
+INSERT INTO `categories` VALUES (1,'Shirt',0,0,0),(2,'Hat',0,0,0),(3,NULL,0,0,0);
+/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `cities`
 --
 
-CREATE TABLE IF NOT EXISTS `cities` (
+DROP TABLE IF EXISTS `cities`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cities` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cityname` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `states_id` int(11) NOT NULL,
   PRIMARY KEY (`id`,`states_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `cities`
 --
 
-INSERT INTO `cities` (`id`, `cityname`, `created_at`, `updated_at`, `states_id`) VALUES
-(1, 'Sunnyvale', NULL, NULL, 1),
-(2, 'Mountain View', NULL, NULL, 1),
-(3, 'San Jose', NULL, NULL, 1),
-(4, 'Las Vegas', NULL, NULL, 2),
-(5, 'Los Angeles', NULL, NULL, 1),
-(6, 'San Francisco', NULL, NULL, 1),
-(7, 'Burbank', NULL, NULL, 1),
-(8, 'Anaheim', NULL, NULL, 1);
-
--- --------------------------------------------------------
+LOCK TABLES `cities` WRITE;
+/*!40000 ALTER TABLE `cities` DISABLE KEYS */;
+INSERT INTO `cities` VALUES (1,'Sunnyvale',NULL,NULL,1),(2,'Mountain View',NULL,NULL,1),(3,'San Jose',NULL,NULL,1),(4,'Las Vegas',NULL,NULL,2),(5,'Los Angeles',NULL,NULL,1),(6,'San Francisco',NULL,NULL,1),(7,'Burbank',NULL,NULL,1),(8,'Anaheim',NULL,NULL,1);
+/*!40000 ALTER TABLE `cities` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `cities_has_states`
 --
 
-CREATE TABLE IF NOT EXISTS `cities_has_states` (
+DROP TABLE IF EXISTS `cities_has_states`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cities_has_states` (
   `cities_id` int(11) NOT NULL,
   `states_id` int(11) NOT NULL,
   PRIMARY KEY (`cities_id`,`states_id`),
   KEY `fk_cities_has_states_states1_idx` (`states_id`),
   KEY `fk_cities_has_states_cities1_idx` (`cities_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `cities_has_states`
+--
+
+LOCK TABLES `cities_has_states` WRITE;
+/*!40000 ALTER TABLE `cities_has_states` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cities_has_states` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `images`
+--
+
+DROP TABLE IF EXISTS `images`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `images` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `img_url` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `images`
+--
+
+LOCK TABLES `images` WRITE;
+/*!40000 ALTER TABLE `images` DISABLE KEYS */;
+/*!40000 ALTER TABLE `images` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `orders`
 --
 
-CREATE TABLE IF NOT EXISTS `orders` (
+DROP TABLE IF EXISTS `orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `orders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ordertotal` float DEFAULT NULL,
   `orderstatus` int(11) DEFAULT NULL,
@@ -136,29 +169,51 @@ CREATE TABLE IF NOT EXISTS `orders` (
   PRIMARY KEY (`id`,`users_id`,`addresses_id`,`addresses_users_id`,`addresses_cities_id`),
   KEY `fk_orders_users1_idx` (`users_id`),
   KEY `fk_orders_addresses1_idx` (`addresses_id`,`addresses_users_id`,`addresses_cities_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `orders`
+--
+
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `orders_has_products`
 --
 
-CREATE TABLE IF NOT EXISTS `orders_has_products` (
+DROP TABLE IF EXISTS `orders_has_products`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `orders_has_products` (
   `orders_id` int(11) NOT NULL,
   `products_id` int(11) NOT NULL,
   PRIMARY KEY (`orders_id`,`products_id`),
   KEY `fk_orders_has_products_products1_idx` (`products_id`),
   KEY `fk_orders_has_products_orders1_idx` (`orders_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `orders_has_products`
+--
+
+LOCK TABLES `orders_has_products` WRITE;
+/*!40000 ALTER TABLE `orders_has_products` DISABLE KEYS */;
+/*!40000 ALTER TABLE `orders_has_products` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `products`
 --
 
-CREATE TABLE IF NOT EXISTS `products` (
+DROP TABLE IF EXISTS `products`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `productname` varchar(255) DEFAULT NULL,
   `stock` int(11) DEFAULT NULL,
@@ -170,15 +225,26 @@ CREATE TABLE IF NOT EXISTS `products` (
   `orders_users_id` int(11) NOT NULL,
   PRIMARY KEY (`id`,`orders_id`,`orders_users_id`),
   KEY `fk_products_orders1_idx` (`orders_id`,`orders_users_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `products`
+--
+
+LOCK TABLES `products` WRITE;
+/*!40000 ALTER TABLE `products` DISABLE KEYS */;
+/*!40000 ALTER TABLE `products` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `shippings`
 --
 
-CREATE TABLE IF NOT EXISTS `shippings` (
+DROP TABLE IF EXISTS `shippings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `shippings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `streetaddress` varchar(65) DEFAULT NULL,
   `unit` varchar(45) DEFAULT NULL,
@@ -188,45 +254,51 @@ CREATE TABLE IF NOT EXISTS `shippings` (
   PRIMARY KEY (`id`,`users_id`,`cities_id`),
   KEY `fk_shipping_users1_idx` (`users_id`),
   KEY `fk_shipping_cities1_idx` (`cities_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `shippings`
 --
 
-INSERT INTO `shippings` (`id`, `streetaddress`, `unit`, `created_at`, `users_id`, `cities_id`) VALUES
-(1, '1 Infinity Loop', NULL, NULL, 0, 2),
-(2, '1980 Zanker Road', NULL, NULL, 0, 3),
-(3, '1 Hacker Way', NULL, NULL, 0, 0),
-(4, '953 Foxglove Dr', NULL, NULL, 0, 1);
-
--- --------------------------------------------------------
+LOCK TABLES `shippings` WRITE;
+/*!40000 ALTER TABLE `shippings` DISABLE KEYS */;
+INSERT INTO `shippings` VALUES (1,'1 Infinity Loop',NULL,NULL,0,2),(2,'1980 Zanker Road',NULL,NULL,0,3),(3,'1 Hacker Way',NULL,NULL,0,0),(4,'953 Foxglove Dr',NULL,NULL,0,1);
+/*!40000 ALTER TABLE `shippings` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `states`
 --
 
-CREATE TABLE IF NOT EXISTS `states` (
+DROP TABLE IF EXISTS `states`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `states` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `state` varchar(2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `states`
 --
 
-INSERT INTO `states` (`id`, `state`) VALUES
-(1, 'CA'),
-(2, 'NV');
-
--- --------------------------------------------------------
+LOCK TABLES `states` WRITE;
+/*!40000 ALTER TABLE `states` DISABLE KEYS */;
+INSERT INTO `states` VALUES (1,'CA'),(2,'NV');
+/*!40000 ALTER TABLE `states` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(65) DEFAULT NULL,
   `last_name` varchar(65) DEFAULT NULL,
@@ -236,17 +308,26 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `userlevel`, `created_at`, `updated_at`) VALUES
-(1, 'Brian', 'Townsend', 'btownsend85@yahoo.com', NULL, 1, NULL, NULL),
-(2, 'Antony', 'Yang', NULL, NULL, 1, NULL, NULL),
-(3, 'Josh', 'Phuang', NULL, NULL, 1, NULL, NULL);
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Brian','Townsend','btownsend85@yahoo.com',NULL,1,NULL,NULL),(2,'Antony','Yang',NULL,NULL,1,NULL,NULL),(3,'Josh','Phuang',NULL,NULL,1,NULL,NULL);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2015-03-24 14:37:05
