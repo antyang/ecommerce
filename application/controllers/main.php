@@ -5,15 +5,37 @@ class Main extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->output->enable_profiler();
+		//$this->load->model('???');
+		//$this->output->enable_profiler();
 	}
 
 	public function index()
 	{
 
-        $this->load->view('products');
+
+        $this->load->view('splashpage.php');
+	}
+	public function edit(/*$id*/)
+	{
+		$this->load->view('edit_product');
 
 
+	}
+	public function cart()
+	{
+		$this->load->view('cart');
+	}
+	public function dashboard()
+	{
+		$this->load->view('admin_dashboard');
+	}
+	public function admin_orders()
+	{
+		$this->load->view('admin_orders');
+	}
+		public function admin_products()
+	{
+		$this->load->view('admin_products');
 	}
 }
 
