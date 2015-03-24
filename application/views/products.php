@@ -26,6 +26,10 @@
         a{
             text-decoration: none;
             }
+
+        .product_box{
+            height: 100px;
+            width: 100px;
         }
     </style>
 </head>
@@ -34,9 +38,8 @@
     <div class="row" id="black_back">
         <div class="ten columns" style="margin-top: 0%">
             <li>
-                <ul><a href="#">Dashboard</a></ul>
-                <ul><a href="#">Orders</a></ul>
-                <ul><a href="#">Products</a></ul>
+
+                <ul><a href="/cart">Shopping Cart (0)</a></ul>
             </li>
         </div>
         <div class="two columns" style="margin-top: 1%">
@@ -61,11 +64,20 @@
             </ul>
         </div>
         <div class="nine columns" style="margin-top: 1%">
-            <div class="eight columns">
-                <h3>Tshirts</h3>
+            <div class="row">
+                <div class="eight columns">
+                    <h3>Tshirts</h3>
+                </div>
+                <div class="four columns">
+                    <a href="#">first</a> | <a href="#">prev</a> | 2 | <a href="#">next</a>
+                </div>
             </div>
-            <div class="four columns">
-                <a href="#">first</a> | <a href="#">prev</a> | 2 | <a href="#">next</a>
+            <div class="row">
+                <div class="twelve columns">
+                    <div class="product_box">
+                        <img src="#">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
