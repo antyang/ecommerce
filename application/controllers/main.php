@@ -11,11 +11,14 @@ class Main extends CI_Controller {
 
 	public function index()
 	{
-        $this->load->view('admin_dashboard');
+
+        // $this->load->view('admin_dashboard');
+        $this->load->view('splashpage.php');
 	}
 	public function edit(/*$id*/)
 	{
 		$this->load->view('edit_product');
+
 	}
 	public function cart()
 	{

@@ -77,8 +77,8 @@
 				<input type="text" placeholder="Security Code">
 				<input type="date" placeholder="Expiration">
 		</form>
-		<button>Continue Shopping</button>
-		<button>Buy</button>
+		<a href=""><button>Continue Shopping</button></a>
+		<a href=""><button>Buy</button></a>
 		</div>
 	</div>
 </div>
