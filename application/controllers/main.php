@@ -30,7 +30,7 @@ class Main extends CI_Controller {
 	{
 		$this->load->view('admin_orders');
 	}
-		public function admin_products()
+	public function admin_products()
 	{
 		$this->load->view('admin_products');
 	}
