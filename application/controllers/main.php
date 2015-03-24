@@ -12,14 +12,17 @@ class Main extends CI_Controller {
 	{
         $this->load->view('splashpage.php');
 	}
+
 	public function edit(/*$id*/)
 	{
 		$this->load->view('edit_product');
 	}
+
 	public function cart()
 	{
 		$this->load->view('cart');
 	}
+
 	public function dashboard()
 	{
 		$this->load->view('admin_dashboard');
@@ -32,6 +35,7 @@ class Main extends CI_Controller {
 	{
 		$this->load->view('admin_orders');
 	}
+
 	public function admin_products()
 	{
 		$this->load->view('admin_products');
@@ -39,6 +43,22 @@ class Main extends CI_Controller {
     public function products()
     {
         $this->load->view('products');
+	
+    public function products()
+    {
+        $this->load->view('products.php');
+    }
+
+//    -------------Login/Logoff-----------
+
+    public function login(){
+        $this->load->model('model');
+
+    }
+
+    public function logoff(){
+        $this->session->sess_destroy();
+        redirect('/');
     }
     public function admin_login()
     {
@@ -55,4 +75,4 @@ class Main extends CI_Controller {
     }
 }
 
-//end of main controlle
+//end of main controller

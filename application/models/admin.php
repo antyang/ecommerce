@@ -1,6 +1,6 @@
 <?php
 
-class admin extends CI_Model {
+ class admin extends CI_Model {
 
     function login_admin($data)
     {
@@ -22,5 +22,10 @@ class admin extends CI_Model {
     //     return $pic_results;   
 
     // }  
+
+//     function get_users_by_email($email){
+//         return $this->db->query("SELECT * FROM members WHERE (email = ?)", array($email))->row_array();
+//     }
+
 
 }

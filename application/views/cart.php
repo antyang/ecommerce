@@ -2,7 +2,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Cart Page</title>
-	
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="/assets/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="/assets/fontawesome/css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="/assets/css/normalize.css">
@@ -58,13 +58,10 @@
 <div class="container">
 	<div class="row">
 		<div class="one columns">
-				<h3 style="border-bottom:1px solid black; width:84px;font-family:source code pro;">NAME</h3>
-		</div>
-		<div class="one columns">
-				<h5 >link</h5>
+				<h3 style="border-bottom:1px solid black; width:93px;">Name</h3>
 		</div>
 		<div class="ten columns">
-			<h5 style="float:right;"><a href="/main/dashboard"><i class="fa fa-user"></a></i> <i class="fa fa-shopping-cart"></i></h5>
+			<h5 style="float:right;"><a href="/main/dashboard"><i class="fa fa-user"></a></i> <a href="/main/cart"><i class="fa fa-shopping-cart"></i></a></h5>
 		</div>
 	</div>
 
@@ -119,7 +116,7 @@
 
 		<div class="six columns">
 			<div class="twelve columns">
-				<form action="">
+				<form action="/" method="post">
 					<h5 id="billing_info">Billing Information</h5>
 					<!-- <input type="checkbox" name="mirror"> Same as shipping<br> -->
 					<i class="fa fa-toggle-off" id="toggle"> Same as shipping</i><br>
@@ -138,9 +135,9 @@
 							<input type="text" placeholder="Security Code">
 							<input type="date" placeholder="Expiration">
 						</div>
-					<a href="/main/products"><button>Continue Shopping</button></a>
-					<a href=""><button>Pay</button></a>
+					<a href="/main/products"><button>Pay</button></a>
 				</form>		
+					<a href="/main/products"><button>Continue Shopping</button></a>
 			</div>
 		</div>
 	</div>
