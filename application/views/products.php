@@ -12,6 +12,10 @@
     <link rel="stylesheet" type="text/css" href="/assets/jquery-ui.css">
     <script type="text/javascript" src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
     <script type="text/javascript" src="/assets/jquery-ui.js"></script>
+    <script type='text/javascript' src='/assets/jquery.simplemodal.js'></script>
+    <script type='text/javascript' src='/assets/osx.js'></script>
+    <link type='text/css' href='/assets/osx.css' rel='stylesheet' media='screen' />
+    <link type='text/css' href='/assets/demo.css' rel='stylesheet' media='screen' />
     <script type="text/javascript">
 
         $(document).ready(function () {
@@ -106,41 +110,68 @@
             <div class="container">
                 <div class="twelve columns" style="margin-top: 5%";>
                     <div class="product_box">
-                        <img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3">
-                        <a href="#">Pineapple Shirt</a>
+                        <a href="#" class="osx"><img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3"></a>
+                        <a href="#" class="osx">Pineapple Shirt</a>
                     </div>
                     <div class="product_box">
-                        <img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3">
-                        <a href="#">Pineapple Shirt</a>
+                        <a href="#" class="osx"><img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3"></a>
+                        <a href="#" class="osx">Pineapple Shirt</a>
                     </div>
                     <div class="product_box">
-                        <img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3">
-                        <a href="#">Pineapple Shirt</a>
+                        <a href="#" class="osx"><img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3"></a>
+                        <a href="#" class="osx">Pineapple Shirt</a>
                     </div>
                     <div class="product_box">
-                        <img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3">
-                        <a href="#">Pineapple Shirt</a>
+                        <a href="#" class="osx"><img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3"></a>
+                        <a href="#" class="osx">Pineapple Shirt</a>
                     </div>
                     <div class="product_box">
-                        <img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3">
-                        <a href="#">Pineapple Shirt</a>
+                        <a href="#" class="osx"><img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3"></a>
+                        <a href="#" class="osx">Pineapple Shirt</a>
                     </div>
                     <div class="product_box">
-                        <img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3">
-                        <a href="#">Pineapple Shirt</a>
+                        <a href="#" class="osx"><img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3"></a>
+                        <a href="#" class="osx">Pineapple Shirt</a>
                     </div>
                     <div class="product_box">
-                        <img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3">
-                        <a href="#">Pineapple Shirt</a>
+                        <a href="#" class="osx"><img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3"></a>
+                        <a href="#" class="osx">Pineapple Shirt</a>
                     </div>
                     <div class="product_box">
-                        <img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3">
-                        <a href="#">Pineapple Shirt</a>
+                        <a href="#" class="osx"><img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3"></a>
+                        <a href="#" class="osx">Pineapple Shirt</a>
                     </div>
+                    <div class="product_box">
+                        <a href="#" class="osx"><img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3"></a>
+                        <a href="#" class="osx">Pineapple Shirt</a>
+                    </div>
+                    <div class="product_box">
+                        <a href="#" class="osx"><img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3"></a>
+                        <a href="#" class="osx">Pineapple Shirt</a>
+                    </div>
+
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<!-----------Modal----------->
+
+
+        <!-- modal content -->
+        <div id="osx-modal-content">
+       <div class="close"><a href="#" class="simplemodal-close">x</a></div>
+            <div id="osx-modal-data">
+            <?php $this->load->view('product_show') ?>
+                <p><button class="simplemodal-close">Close</button> <span>(or press ESC or click the overlay)</span></p>
+            </div>
+        </div>
+
+
+<!-----------------TEST-------------->
+
 </body>
 </html>
