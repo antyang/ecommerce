@@ -1,18 +1,17 @@
 <?php
 
-// class login extends CI_Model {
+class storefront extends CI_Model {
 
-    function all_products($data)
+    function all_products()
     {
-        return $this->db->query('SELECT * FROM products');
+        return $this->db->query('SELECT * FROM products')->result();
     }
     function most_popular()
     {
         return $this->db->query('SELECT * FROM products ORDER BY sold DESC;');
     }
-    function login_user($data)
+    function login_admin($data)
     {
-    	// var_dump($email);
-    	return $this->db->query("SELECT * FROM users WHERE email = ? AND password = ? ", array($data['email'], $data['password']))->row_array();
+        return $this->db->query("SELECT * FROM users WHERE email = ? AND password = ?  AND userlevel = '1'", array($data['email'], $data['password']))->row_array();
     }
 }
