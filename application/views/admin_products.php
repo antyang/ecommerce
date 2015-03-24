@@ -11,13 +11,12 @@
     <link rel="stylesheet" href="/assets/css/skeleton.css">
 
     <style>
-        li ul{
+        li{
             display: inline-block;
             padding: 20px;
         }
-        li{
+        ul{
             list-style-type:none;
-            color: white;
             font-weight:bold;
         }
         #black_back{
@@ -30,13 +29,13 @@
 <div class="container">
     <div class="row" id="black_back">
         <div class="ten columns" style="margin-top: 0%">
-            <li>
-                <ul><a href="#"></a></ul>
-                <ul><a href="#">Orders</a></ul>
-                <ul><a href="#">Products</a></ul>
-            </li>
+            <ul>
+                <li><a href="#"></a></li>
+                <li><a href="#">Orders</a></li>
+                <li><a href="#">Products</a></li>
+            </ul>
         </div>
-        <div class="two columns" style="margin-top: 1%">
+        <div class="two columns" style="margin-top:2%">
             <a href="#">Log Off</a>
         </div>
     </div>
@@ -51,14 +50,12 @@
         <div class="nine columns">
             <form>
                 <input type="text" name="search" placeholder="Search">
+            <form>
 
         </div>
         <div class="two columns">
-            <select>
-                <option value="in_process">Show All</option>
-                <option value="canceled">Order In Process</option>
-                <option value="shipped">Shipped</option>
-            </select>
+            <form>
+                <a href="#"><button>Add Product</button></a>
             </form>
         </div>
     </div>
@@ -74,82 +71,57 @@
             <table>
                 <thead>
                 <tr>
-                    <th>Order ID</th>
+                    <th>Picture</th>
+                    <th>ID</th>
                     <th>Name</th>
-                    <th>Date</th>
-                    <th>Billing Address</th>
-                    <th>Total</th>
-                    <th>Status</th>
+                    <th>Inventory Count</th>
+                    <th>Quantity Added</th>
+                    <th>Action</th>
                 </tr>
                 <tr>
-                    <td><a href="#">1</a></td>
+                    <td><img src="#"></td>
+                    <td>1</td>
                     <td>Steve Jobs</td>
-                    <td>01/15/2015</td>
-                    <td>1 Infinity Loop</td>
-                    <td>$9.99</td>
-                    <th>
-                        <select>
-                            <option value="in_process">Order In Process</option>
-                            <option value="canceled">Canceled</option>
-                            <option value="shipped">Shipped</option>
-                        </select>
-                    </th>
+                    <td>5000</td>
+                    <td>50</td>
+                    <td><a href="#">Edit</a> <a href="#">Delete</a></td>
+
                 </tr>
                 <tr>
-                    <td><a href="#">1</a></td>
-                    <td>Michael Choi</td>
-                    <td>3/20/2015</td>
-                    <td>1980 Zanker Road</td>
-                    <td>$99.99</td>
-                    <th>
-                        <select>
-                            <option value="in_process">Order In Process</option>
-                            <option value="canceled">Canceled</option>
-                            <option value="shipped">Shipped</option>
-                        </select>
-                    </th>
+                    <td><img src="#"></td>
+                    <td>1</td>
+                    <td>Steve Jobs</td>
+                    <td>5000</td>
+                    <td>50</td>
+                    <td><a href="#">Edit</a> <a href="#">Delete</a></td>
+
                 </tr>
                 <tr>
-                    <td><a href="#">1</a></td>
-                    <td>Wiz Kalifa</td>
-                    <td>12/14/2015</td>
-                    <td>Two Dazed Court</td>
-                    <td>$999.99</td>
-                    <th>
-                        <select>
-                            <option value="in_process">Order In Process</option>
-                            <option value="canceled">Canceled</option>
-                            <option value="shipped">Shipped</option>
-                        </select>
-                    </th>
+                    <td><img src="#"></td>
+                    <td>1</td>
+                    <td>Steve Jobs</td>
+                    <td>5000</td>
+                    <td>50</td>
+                    <td><a href="#">Edit</a> <a href="#">Delete</a></td>
+
                 </tr>
                 <tr>
-                    <td><a href="#">1</a></td>
-                    <td>Sample Name</td>
-                    <td>12/13/2015</td>
-                    <td>1 Infinity Loop</td>
-                    <td>$9.99</td>
-                    <th>
-                        <select>
-                            <option value="in_process">Order In Process</option>
-                            <option value="canceled">Canceled</option>
-                            <option value="shipped">Shipped</option>
-                        </select>
-                    </th>
+                    <td><img src="#"></td>
+                    <td>1</td>
+                    <td>Steve Jobs</td>
+                    <td>5000</td>
+                    <td>50</td>
+                    <td><a href="#">Edit</a> <a href="#">Delete</a></td>
+
                 </tr>
                 <tr>
-                    <td>5</td>
-                    <td>Sample Name</td>
-                    <td>12/13/2015</td>
-                    <td>1 Infinity Loop</td>
-                    <td>$9.99</td>
-                    <th>
-                        <select>
-                            <option value="in_process">Order In Process</option>
-                            <option value="canceled">Canceled</option>
-                            <option value="shipped">Shipped</option>
-                        </select>
-                    </th>
+                    <td><img src="#"></td>
+                    <td>1</td>
+                    <td>Steve Jobs</td>
+                    <td>5000</td>
+                    <td>50</td>
+                    <td><a href="#">Edit</a> <a href="#">Delete</a></td>
+
                 </tr>
 
                 </thead>
