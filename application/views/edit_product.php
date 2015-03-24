@@ -41,9 +41,11 @@
 </head>
 <body>
 	<h2>Edit Product - ID 2</h2>
+
+	
 <form>
 	<div class="container">
-	  <div class="row">
+		  <div class="row">
 	    <div class="six columns">
 	      <label for="name">Name</label>
 	      <input class="five columns" type="text" placeholder="Hat" id="name">
