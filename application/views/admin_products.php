@@ -66,7 +66,7 @@
         </div>
         <div class="two columns">
             <form>
-                <a href="add"><button>Add Product</button></a>
+                <a href="admin/add"><button>Add Product</button></a>
             </form>
         </div>
     </div>
