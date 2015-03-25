@@ -13,7 +13,11 @@ jQuery(function ($) {
 		container: null,
 		init: function () {
 			$("input.osx, a.osx").click(function (e) {
-				e.preventDefault();	
+				e.preventDefault();
+
+                clicked = $(this).attr('id');
+
+                $.get('/main/store_session/' + clicked);
 
 				$("#osx-modal-content").modal({
 					overlayId: 'osx-overlay',
@@ -29,6 +33,7 @@ jQuery(function ($) {
 			});
 		},
 		open: function (d) {
+            $.get('/main/store_session/' + clicked);
 			var self = this;
 			self.container = d.container[0];
 			d.overlay.fadeIn('slow', function () {

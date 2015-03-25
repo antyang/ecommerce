@@ -20,6 +20,8 @@
     <link type='text/css' href='/assets/demo.css' rel='stylesheet' media='screen' />
     <script type="text/javascript">
 
+        var clicked;
+
         $(document).ready(function () {
             $('img').hover(
                 function(){
@@ -132,8 +134,9 @@
                     <div class="product_box">
 
 
-                        <a href="show/<?=$hue->{'id'}?>" class="osx"><img class= "first_img" src="<?= $hue->{'image'} ?>"></a>
+                        <a id=<?=$hue->{'id'} ?> href="/main/session_modal/<?=$hue->{'id'}?>" class="osx"><img class= "first_img" src="<?= $hue->{'image'} ?>"></a>
                         <a href="#" class="osx"><?=$hue->{'productname'}?><br>$<?=$hue->{'price'}?></a>
+
 
                     </div>
 
@@ -153,8 +156,14 @@
         <div id="osx-modal-content">
        <div class="close"><a href="#" class="simplemodal-close">x</a></div>
             <div id="osx-modal-data">
-            <?php $this->load->view('product_page') ?>
-                <p><button class="simplemodal-close">Close</button> <span>(or press ESC or click the overlay)</span></p>
+                <?php
+                $this->load->model("storefront");
+                $id = $this->session->userdata("id");
+                $product = $this->storefront->show_product($id);
+
+                $this->load->view('product_page', array('product' => $product));
+//                $this->load->view('product_page');
+            ?>
             </div>
         </div>
 
