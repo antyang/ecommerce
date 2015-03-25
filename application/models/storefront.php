@@ -3,8 +3,9 @@
 class storefront extends CI_Model {
 
     function all_products()
-    {
-        return $this->db->query('SELECT * FROM products')->result();
+    {   
+        $query = $this->db->query('SELECT * FROM products');
+        return $query->result();
     }
     function most_popular()
     {
