@@ -47,7 +47,7 @@
                 <h3 style="border-bottom:1px solid black; width:93px;">Name</h3>
         </div>
         <div class="ten columns">
-            <h5 style="float:right;"><a href="/main/dashboard"><i class="fa fa-user"></a></i> <a href="/main/cart"><i class="fa fa-shopping-cart"></i></a></h5>
+            <h5 style="float:right;"><a href="dashboard"><i class="fa fa-user"></a></i> <a href="cart"><i class="fa fa-shopping-cart"></i></a></h5>
         </div>
     </div>
     <div class="row">
@@ -65,9 +65,7 @@
 
         </div>
         <div class="two columns">
-            <form>
-                <a href="admin/add"><button>Add Product</button></a>
-            </form>
+            <a href="add"><button>Add Product</button></a>
         </div>
     </div>
 </div>

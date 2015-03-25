@@ -21,7 +21,6 @@ class Main extends CI_Controller {
 	{
 		$this->load->model('storefront');
 		$categories = $this->storefront->all_category();
-		var_dump($categories);
 		$this->load->view('add_product', array('categories' => $categories));
 	}
 
@@ -68,6 +67,16 @@ class Main extends CI_Controller {
     {
     	$this->load->view('product_show.php');
     }
+
+    public function show($id)
+    {
+        $this->load->model("storefront");
+        $product = $this->storefront->show_product($id);
+        var_dump($product);
+        die();
+        $this->load->view('product_page', array('product' => $product));
+
+    }
 //    -------------Login/Logoff-----------
 
     public function dashboard()
@@ -89,7 +98,7 @@ class Main extends CI_Controller {
     public function admin_login()
     {
     	$this->load->model('admin');
-    	$data = $this->admin->login_admin($this->input->post());
+    	$data = $this->storefront->login_admin($this->input->post());
     	if($data==null)
     	{
     		$this->session->set_flashdata('error', 'Invalid Username/Password');
@@ -97,9 +106,18 @@ class Main extends CI_Controller {
     	}
     	else
     	{
-    		$this->session->set_flashdata('user', $data);
-    		redirect('admin/products');
-    		$this->load->products_admin;
+    		var_dump($data);
+    		$new_data = array($data->id, $data->first_name);
+    		$this->session->set_userdata('user', $new_data);
+    		if($data->userlevel == 1)
+    		{
+    			redirect('admin/products');
+    			$this->load->products_admin;
+    		}
+    		else
+    		{
+    			redirect('products');
+    		}
     	}
     }
 

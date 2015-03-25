@@ -21,7 +21,7 @@ class storefront extends CI_Model {
     }
     function login_admin($data)
     {
-        return $this->db->query("SELECT * FROM users WHERE email = ? AND password = ?  AND userlevel = '1'", array($data['email'], $data['password']))->row_array();
+        return $this->db->query("SELECT * FROM users WHERE email = ? AND password = ?", array($data['email'], $data['password']))->row();
     }
     function delete_product($id)
     {
@@ -40,5 +40,8 @@ class storefront extends CI_Model {
         $values = array($new_qty['quantity'], $new_qty['id']);
         $this->db->query($query, $values);
     }
-
+    function show_product($id){
+        $query = $this->db->query('SELECT * FROM products WHERE id = ?', array($id));
+        return $query->result();
+    }
 }

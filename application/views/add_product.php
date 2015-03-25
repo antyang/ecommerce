@@ -5,6 +5,30 @@
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/assets/css/normalize.css">
     <link rel="stylesheet" href="/assets/css/skeleton.css">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="/js/ajaxupload.js" type="text/javascript"></script>
+    <script>
+    $(document).ready(function(){
+
+  var thumb = $('img#thumb');        
+
+  new AjaxUpload('imageUpload', {
+    action: $('form#newHotnessForm').attr('action'),
+    name: 'image',
+    onSubmit: function(file, extension) {
+      $('div.preview').addClass('loading');
+    },
+    onComplete: function(file, response) {
+      thumb.load(function(){
+        $('div.preview').removeClass('loading');
+        thumb.unbind();
+      });
+      thumb.attr('src', response);
+    }
+  });
+  
+});
+    </script>
  	<style type="text/css">  
  		label {
  			display: inline-block;
@@ -36,6 +60,9 @@
  		.delete {
  			margin-bottom: 40px;
  		}
+/* 		#imageUpload, #save {
+ 			float:left;
+ 		}*/
 
 	</style>
 </head>
@@ -77,10 +104,27 @@
 	    </div>
 	  </div>
 	  <div class="row">
-	  	<div class="six columns">
-	  	<label>Images</label>
-	  	<input class="button-primary four columns" type="submit" value="Upload">
+	  	<div class="four columns">
 	  	</div>
+	  	<div id="upload-area">
+			<div id="preview">
+				<img width="100px" height="100px" src="/images/icons/128px/zurb.png" id="thumb">
+			</div>
+			<div class="row">
+				<form action="/playground/ajax_upload" id="newHotnessForm">
+					<label>Upload a Picture</label><br><br>
+					<input type="file" size="20" id="imageUpload" class=" "><br><br>
+					<button class="button" id="save" type="submit">Save</button>
+				</form>
+			</div>
+		</div>
+		<div class="four columns">
+	  	</div>
+<!-- 	  	<div class="six columns">
+	  	<label>Images</label>
+	  	<input class="button-primary four columns" type="submit" id="image" value="Upload">
+	  	<input type="file" id="my_file" name="photo" style="display: none;" />
+	  	</div> -->
 	  </div>
 	  <div id="options" class="row">
 	  	<div class="two columns">
