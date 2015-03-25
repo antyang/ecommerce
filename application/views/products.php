@@ -132,7 +132,7 @@
                     <div class="product_box">
 
 
-                        <a href="#" class="osx"><img class= "first_img" src="<?= $hue->{'image'} ?>"></a>
+                        <a href="show/<?=$hue->{'id'}?>" class="osx"><img class= "first_img" src="<?= $hue->{'image'} ?>"></a>
                         <a href="#" class="osx"><?=$hue->{'productname'}?><br>$<?=$hue->{'price'}?></a>
 
                     </div>

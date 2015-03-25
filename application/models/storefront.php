@@ -37,5 +37,9 @@ class storefront extends CI_Model {
         $this->db->query($query, $values);
     }
 
+    function show_product($id){
+        $query = $this->db->query('SELECT * FROM products WHERE id = ?', array($id));
+        return $query->result();
+    }
 
 }

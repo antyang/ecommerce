@@ -80,7 +80,7 @@
 
     </div>
 </div>
-<h3>Pineapple Shirt $19.99</h3>
+<h3>Pineapple Shirt <?= $product->productname ?>$19.99</h3>
 <img src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3">
 <!--<h3>Pineapple Shirt $19.99</h3>-->
 <button>Add to Cart</button>

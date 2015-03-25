@@ -65,6 +65,16 @@ class Main extends CI_Controller {
     {
     	$this->load->view('product_show.php');
     }
+
+    public function show($id)
+    {
+        $this->load->model("storefront");
+        $product = $this->storefront->show_product($id);
+        var_dump($product);
+        die();
+        $this->load->view('product_page', array('product' => $product));
+
+    }
 //    -------------Login/Logoff-----------
 
     public function dashboard()
