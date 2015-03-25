@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Admin Login</title>
+    <title>Login</title>
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,7 +35,7 @@
     <div class="row">
         <div class="twelve column" style="margin-top: 5%">
 <!--            <img src="#" id="banner_picture">-->
-            <h2>Admin Login</h2>
+<!--             <h2>Login</h2> -->
             <?php
             if(null !== $this->session->flashdata('error'))
                 {
