@@ -70,8 +70,8 @@ class Main extends CI_Controller {
     {
         $this->load->model("storefront");
         $product = $this->storefront->show_product($id);
-        var_dump($product);
-        die();
+//        var_dump($product);
+//        die();
         $this->load->view('product_page', array('product' => $product));
 
     }
@@ -110,6 +110,12 @@ class Main extends CI_Controller {
     	}
     }
 
+    function session_modal($id){
+        var_dump($id);
+        echo "shit";
+        die();
+        $this->session->set_userdata("lol_id", $id );
+    }
 //    -------- Delete Product ---------
 
     public function delete_product($id)
@@ -134,6 +140,11 @@ class Main extends CI_Controller {
         $this->storefront->update($new_qty);
         $this->session->set_flashdata('data', $this->storefront->all_products());
         redirect('cart');
+    }
+
+    public function store_session($id)
+    {
+        $this->session->set_userdata('id', $id);
     }
 }
 
