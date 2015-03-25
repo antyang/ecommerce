@@ -17,6 +17,10 @@ class Main extends CI_Controller {
 	{
 		$this->load->view('edit_product');
 	}
+	public function add()
+	{
+		$this->load->view('add_product');
+	}
 
 	public function cart()
 	{
@@ -44,7 +48,19 @@ class Main extends CI_Controller {
     {
     	$this->load->model('storefront');
     	$data = $this->storefront->all_products();
+
+
+//    	 var_dump($data);
+//    	 die();
+
         $this->load->view('products.php', array('data' => $data));
+    }
+
+    public function products_admin()
+    {
+        $this->load->model('storefront');
+        $garbage = $this->storefront->all_products();
+        $this->load->view('admin_products', array('garbage' => $garbage));
     }
 
 
@@ -77,7 +93,8 @@ class Main extends CI_Controller {
     	$data = $this->admin->login_admin($this->input->post());
     	if($data==null)
     	{
-    		redirect('admin_login', array('error' => 'Invalid Username/Password'));
+    		$this->session->set_flashdata('error', 'Invalid Username/Password');
+    		redirect('/login');
     	}
     	else
     	{

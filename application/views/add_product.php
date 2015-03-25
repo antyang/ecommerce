@@ -1,22 +1,11 @@
 <html>
 <head>
-	<title>Edit Product ID 2</title>
+	<title>Add Product</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">    
-    <link rel="stylesheet" type="text/css" href="/assets/fontawesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/fontawesome/css/font-awesome.css">
-
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/assets/css/normalize.css">
     <link rel="stylesheet" href="/assets/css/skeleton.css">
  	<style type="text/css">  
-	 	body{
-            margin-left: 20px;
-            /*font-family: pragmatapro;*/
-        }
-        .fa fa-user, a{
-            color: black;
-            margin-right: 10px;
-        }
  		label {
  			display: inline-block;
  			text-align: right;
@@ -51,70 +40,59 @@
 	</style>
 </head>
 <body>
+	<h2>Add Product</h2>
+
 	
-
 <form>
-	<div class="container" style="margin: 0 auto">
-	<div class="row">
-        <div class="one columns">
-                <h3 style="border-bottom:1px solid black; width:93px;">Name</h3>
-        </div>
-        <div class="ten columns">
-            <h5 style="float:right;"><a href="/main/dashboard"><i class="fa fa-user"></a></i> <a href="/main/cart"><i class="fa fa-shopping-cart"></i></a></h5>
-        </div>
-    </div>
-
-
-		<h2 style="text-align:center;">Edit Product - ID 2</h2>
-		<div class="row">
-		    <div class="six columns">
-		      <label for="name">Name</label>
-		      <input class="five columns" type="text" placeholder="Hat" id="name" style="width:200px">
-		    </div>
-		    <div class="six columns">
-			<div class="eight columns">
-				<label for="description">Description</label><br>
-				<textarea class="five columns" placeholder="Great Fit, Cool New Colors" id="description" style="width:400px;"></textarea>
-			</div>
-			</div>
-			
-		</div>
-		<div class="row">
-				<label for="category">Categories</label>
-					<select class="five columns" id="category">
-					<option value="Option 1">Shirt</option>
-					<option value="Option 2">Hat</option>
-					<option value="Option 3">Pant</option>
-					<option value="Option 4">Key Chain</option>
-					<option value="Option 5">Belt</option>
-					<option value="Option 6">Stuff</option></select>
-		</div>
-		<div class="row">
-			<div class="six columns">
-				<label for="new">Or add a new category</label>
-				<input class="five columns" type="textarea" placeholder="New Category" id="new">
-			</div>
-		</div>
-		<div class="row">
-			<div class="six columns">
-				<label>Images</label>
-				<input class="button-primary four columns" type="submit" value="Upload">
-			</div>
-		</div>
-
-
+	<div class="container">
+		  <div class="row">
+	    <div class="six columns">
+	      <label for="name">Name</label>
+	      <input class="five columns" type="text" placeholder="Hat" id="name">
+	    </div>
+	  </div>
+	  <div class="row">
+	    <div class="six columns">
+	      <label for="description">Description</label>
+	      <textarea class="five columns" placeholder="Great Fit, Cool New Colors" id="description"></textarea>
+	    </div>
+	  </div>
+	  <div class="row">
+	    <div class="six columns">
+	      <label for="category">Categories</label>
+	      <select class="five columns" id="category">
+	        <option value="Option 1">Shirt</option>
+	        <option value="Option 2">Hat</option>
+	        <option value="Option 3">Pant</option>
+	        <option value="Option 4">Key Chain</option>
+	        <option value="Option 5">Belt</option>
+	        <option value="Option 6">Stuff</option>
+	      </select>
+	    </div>
+	  </div>
+	  <div class="row">
+	    <div class="six columns">
+	      <label for="new">Or add a new category</label>
+	      <input class="five columns" type="textarea" placeholder="New Category" id="new">
+	    </div>
+	  </div>
+	  <div class="row">
+	  	<div class="six columns">
+	  	<label>Images</label>
+	  	<input class="button-primary four columns" type="submit" value="Upload">
+	  	</div>
+	  </div>
 	  <div class="row">
 	  	<div class="one columns">
 	  	</div>
 	  	<div class="eight columns">
 	  		<div class="three columns"><img id="pic1" src="https://igcdn-photos-b-a.akamaihd.net/hphotos-ak-xfa1/t51.2885-15/11056004_626501974117289_184839600_n.jpg" class="eleven columns" style="background-color: #ddd; color: black; border: 1px solid black;">
-
 	  		</div>
 	  		<div class="three columns"><img id="pic2" src="https://igcdn-photos-b-a.akamaihd.net/hphotos-ak-xfa1/t51.2885-15/11056004_626501974117289_184839600_n.jpg" class="eleven columns" style="background-color: #ddd; color: black; border: 3px solid black;"><br><p><strong>Main</strong></p>
 	  		</div>
 	  		<div class="three columns"><img id="pic3" src="https://igcdn-photos-b-a.akamaihd.net/hphotos-ak-xfa1/t51.2885-15/11056004_626501974117289_184839600_n.jpg" class="eleven columns" style="background-color: #ddd; color: black; border: 1px solid black;">
 	  		</div>
-	  	</div> -->
+	  	</div>
 	  	<div class="one columns">
 	  	</div>
 	  </div>

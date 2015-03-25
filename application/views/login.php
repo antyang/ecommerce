@@ -36,7 +36,11 @@
         <div class="twelve column" style="margin-top: 5%">
 <!--            <img src="#" id="banner_picture">-->
             <h2>Admin Login</h2>
-            <?="<p class='red'>".$this->session->flashdata('login_failed');?></p><br>
+            <?php
+            if(null !== $this->session->flashdata('error'))
+                {
+                    echo "<p class='red'>".$this->session->flashdata('error')."</p><br>";
+                } ?>
 
         </div>
     </div>
