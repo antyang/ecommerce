@@ -9,7 +9,11 @@ class storefront extends CI_Model {
     }
     function most_popular()
     {
-        return $this->db->query('SELECT * FROM products ORDER BY sold DESC;');
+        return $this->db->query('SELECT * FROM products ORDER BY sold DESC;')->row_array();
+    }
+    function category($data)
+    {
+        return $this->db->query("SELECT * FROM products LEFT JOIN products ON categories.id = products.category_id WHERE category_id = ?", array($data['category']))->result();
     }
     function login_admin($data)
     {

@@ -122,13 +122,22 @@
             <div class="container">
                 <div class="twelve columns" style="margin-top: 5%";>
                     <? 
+                        foreach($data as $key)
+                            // var_dump($key);
+
                         foreach($data as $hue)
                             // var_dump($hue->{'image'});
+
                             // die();
-                        {?>
+                    {?>
                     <div class="product_box">
+
+                        <a href="#" class="osx"><img class= "first_img" src="<?= $key->image ?>"></a>
+                        <a href="#" class="osx"><?= $key->productname ?></a>
+
                         <a href="#" class="osx"><img class= "first_img" src="<?= $hue->{'image'} ?>"></a>
                         <a href="#" class="osx"><?=$hue->{'productname'}?><br>$<?=$hue->{'price'}?></a>
+
                     </div>
 
                     <? } ?>
