@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Edit Product ID 2</title>
+	<title>Add Product</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/assets/css/normalize.css">
@@ -40,7 +40,7 @@
 	</style>
 </head>
 <body>
-	<h2>Edit Product - ID 2</h2>
+	<h2>Add Product</h2>
 
 	
 <form>

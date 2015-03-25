@@ -17,6 +17,10 @@ class Main extends CI_Controller {
 	{
 		$this->load->view('edit_product');
 	}
+	public function add()
+	{
+		$this->load->view('add_product');
+	}
 
 	public function cart()
 	{
@@ -73,7 +77,8 @@ class Main extends CI_Controller {
     	$data = $this->admin->login_admin($this->input->post());
     	if($data==null)
     	{
-    		redirect('admin_login', array('error' => 'Invalid Username/Password'));
+    		$this->session->set_flashdata('error', 'Invalid Username/Password');
+    		redirect('/login');
     	}
     	else
     	{
