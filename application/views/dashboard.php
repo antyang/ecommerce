@@ -54,7 +54,7 @@
         </div>
 
     </div>
-    <a href="#"><button>Log Off</button></a>
+    <a href="/"><button>Log Off</button></a>
 </div>
 
 

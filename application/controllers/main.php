@@ -44,8 +44,6 @@ class Main extends CI_Controller {
     {
     	$this->load->model('storefront');
     	$data = $this->storefront->all_products();
-    	// var_dump($data);
-    	// die();
         $this->load->view('products.php', array('data' => $data));
         
     }
