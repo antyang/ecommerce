@@ -8,7 +8,7 @@ class storefront extends CI_Model {
     }
     function most_popular()
     {
-        return $this->db->query('SELECT * FROM products ORDER BY sold DESC;');
+        return $this->db->query('SELECT * FROM products ORDER BY sold DESC;')->row_array();
     }
     function login_admin($data)
     {

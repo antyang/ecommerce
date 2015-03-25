@@ -23,10 +23,10 @@ class Main extends CI_Controller {
 		$this->load->view('cart');
 	}
 
-	// public function dashboard()
-	// {
-	// 	$this->load->view('admin_dashboard');
-	// }
+	public function login()
+	{
+		$this->load->view('login');
+	}
 	public function admin_dashboard()
 	{
 		$this->load->view('admin_login.php');
@@ -47,7 +47,6 @@ class Main extends CI_Controller {
     	// var_dump($data);
     	// die();
         $this->load->view('products.php', array('data' => $data));
-        
     }
 
 
@@ -66,7 +65,7 @@ class Main extends CI_Controller {
     public function logoff()
     {
         $this->session->sess_destroy();
-        redirect('/');
+        redirect('');
     }
     public function admin_login()
     {

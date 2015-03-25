@@ -153,13 +153,13 @@
                         <a href="#" class="osx">Pineapple Shirt</a>
                     </div>
                     <? 
-                        foreach($data as $hue)
-                            // var_dump($hue);
+                        foreach($data as $key)
+                            // var_dump($key);
                             // die();
-                        {?>
+                    {?>
                     <div class="product_box">
-                        <a href="#" class="osx"><img class= "first_img" src="<?php echo $hue['image']; ?>"></a>
-                        <a href="#" class="osx">asdf</a>
+                        <a href="#" class="osx"><img class= "first_img" src="<?= $key->image ?>"></a>
+                        <a href="#" class="osx"><?= $key->productname ?></a>
                     </div>
 
                     <? } ?>
