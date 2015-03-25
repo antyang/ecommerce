@@ -63,7 +63,13 @@ class Main extends CI_Controller {
     public function logoff()
     {
         $this->session->sess_destroy();
-        redirect('');
+        redirect('/');
+    }
+
+    public function finishPayment()
+    {
+        $this->session->sess_destroy();
+        $this->load->view('splashpage.php');
     }
     public function admin_login()
     {
@@ -81,11 +87,28 @@ class Main extends CI_Controller {
 
 //    -------- Delete Product ---------
 
-    public function delete_product($id){
+    public function delete_product($id)
+    {
         $this->load->model('storefront');
         $this->storefront->delete_product($id);
         $this->load->view('admin_products');
 
+    }
+
+    public function removeFromCart($id)
+    {
+        $this->load->model('storefront');
+        $this->storefront->removeFromCart($id);
+        var_dump($this->storefront->removeFromCart($id));
+        $this->load->view('', $data);
+    }
+
+    public function updateCart()
+    {
+        $new_qty = $this->input->post();
+        $this->storefront->update($new_qty);
+        $this->session->set_flashdata('data', $this->storefront->all_products());
+        redirect('cart');
     }
 }
 

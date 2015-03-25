@@ -24,6 +24,17 @@ class storefront extends CI_Model {
     {
         $query = $this->db->query("DELETE FROM products WHERE id = ?", array($id));
         return $query;
+    }
 
+    function removeFromCart($id)
+    {
+        $query = "DELETE FROM products WHERE id = $id";
+        $this->db->query($query);
+    }
+    function updateCart($new_qty)
+    {
+        $query = "UPDATE products SET quantity =? WHERE id=?";
+        $values = array($new_qty['quantity'], $new_qty['id']);
+        $this->db->query($query, $values);
     }
 }

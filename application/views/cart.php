@@ -76,8 +76,9 @@
 			<tr>
 				<td>Black Belt for staff</td>
 				<td>$9.99</td>
+				
 				<td><input type="number" name="numericInput" style="margin: auto;" size="2" min="0" max="20" value="0">
-					<i class="fa fa-refresh update"></i><i class="fa fa-times" style="padding-left:10px;"></i>
+					<a href=""><i class="fa fa-refresh update"></a></i><a href="/main/removeFromCart"><i class="fa fa-times" style="padding-left:10px;"></a></i>
 				</td>
 				<td>$9.99</td>
 			</tr>
@@ -85,7 +86,7 @@
 				<td>Black Belt for staff</td>
 				<td>$9.99</td>
 				<td><input type="number" name="numericInput" style="margin: auto;" size="2" min="0" max="20" value="0">
-					<i class="fa fa-refresh update"></i><i class="fa fa-times" style="padding-left:10px;"></i>
+					<a href=""><i class="fa fa-refresh update"></a></i><a href="/main/removeFromCart"><i class="fa fa-times" style="padding-left:10px;"></a></i>
 				</td>
 				<td>$9.99</td>
 			</tr>
@@ -127,7 +128,7 @@
 						<input type="text" placeholder="City">
 						<input type="text" placeholder="State">
 						<input type="text" placeholder="Zipcode"><br>
-					<h6 style="margin:auto;font-family:hermit">Choose your payment</h6>
+					<h6 style="margin:auto;">Choose your payment</h6>
 					<h3 id="credit" ><i class="fa fa-credit-card"></i></h3>
 					<h4 style="font-size:36px;"><a href=""><i class="fa fa-cc-paypal"></i></a></h4>		
 						<div id="credit_payment">
