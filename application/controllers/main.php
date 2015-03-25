@@ -5,7 +5,7 @@ class Main extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		// $this->load->model('storefront');
+		$this->load->model('storefront');
 		//$this->output->enable_profiler();
 	}
 	public function index()
@@ -42,25 +42,22 @@ class Main extends CI_Controller {
 
 	public function admin_products()
 	{
-		$this->load->view('admin_products');
+		$products = $this->storefront->all_products();
+        $this->load->view('admin_products', array('products' => $products));
 	}
     public function products()
     {
     	$this->load->model('storefront');
     	$data = $this->storefront->all_products();
-
-
-//    	 var_dump($data);
-//    	 die();
-
         $this->load->view('products.php', array('data' => $data));
     }
 
     public function products_admin()
     {
-        $this->load->model('storefront');
         $garbage = $this->storefront->all_products();
-        $this->load->view('admin_products', array('garbage' => $garbage));
+        var_dump($garbage);
+        die();
+        $this->load->view('admin/products', array('garbage' => $garbage));
     }
 
 
@@ -72,7 +69,6 @@ class Main extends CI_Controller {
 
     public function dashboard()
     {
-        // $this->load->model('model');
         $this->load->view('dashboard.php');
     }
     
@@ -98,7 +94,9 @@ class Main extends CI_Controller {
     	}
     	else
     	{
-    		$this->load->view('admin_products');
+    		$this->session->set_flashdata('user', $data);
+    		redirect('admin/products');
+    		$this->load->products_admin;
     	}
     }
 

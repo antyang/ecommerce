@@ -66,7 +66,7 @@
         </div>
         <div class="two columns">
             <form>
-                <a href="#"><button>Add Product</button></a>
+                <a href="add"><button>Add Product</button></a>
             </form>
         </div>
     </div>
@@ -83,14 +83,14 @@
                 <thead>
 
 
-                <?php foreach ($garbage as $huehue)
+                <?php foreach ($products as $product)
                 {?>
                 <tr>
-                    <td><img src="<?= $huehue->{'image'} ?>""></td>
-                    <td><?= $huehue->{'id'} ?></td>
-                    <td><?= $huehue->{'productname'} ?></td>
-                    <td><?= $huehue->{'stock'} ?></td>
-                    <td><a href="#">Edit</a> <a href="/main/delete_product/<?=$huehue->{'id'}?>">Delete</a></td>
+                    <td><img src="<?= $product->{'image'} ?>""></td>
+                    <td><?= $product->{'id'} ?></td>
+                    <td><?= $product->{'productname'} ?></td>
+                    <td><?= $product->{'stock'} ?></td>
+                    <td><a href="edit">Edit</a> <a href="/main/delete_product/<?=$product->{'id'}?>">Delete</a></td>
 
                 </tr>
 
@@ -102,7 +102,7 @@
         </div>
 
     </div>
-    <a href="#"><button class="button-primary">Log Off</button></a>
+    <a href="/main/logoff"><button class="button-primary">Log Off</button></a>
 </div>
 
 
