@@ -61,9 +61,9 @@
         </div>
         <div class="two columns">
             <select>
-                <option value="in_process">Show All</option>
-                <option value="canceled">Order In Process</option>
-                <option value="shipped">Shipped</option>
+                <option value="in_process" id="in_process">Show All</option>
+                <option value="canceled" id="canceled">Order In Process</option>
+                <option value="shipped" id="shipped">Shipped</option>
             </select>
             </form>
         </div>
@@ -79,6 +79,10 @@
         <div class="twelve columns" style="margin-top: 5%">
             <table class="u-full-width">
                 <thead>
+
+                <?php
+                
+                ?>
                     <tr>
                         <th>Order ID</th>
                         <th>Name</th>
