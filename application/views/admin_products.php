@@ -91,7 +91,7 @@
                     <td>Steve Jobs</td>
                     <td>5000</td>
                     <td>50</td>
-                    <td><a href="#">Edit</a> <a href="#">Delete</a></td>
+                    <td><a href="#">Edit</a> <a href="/main/delete_product/2">Delete</a></td>
 
                 </tr>
                 <tr>

@@ -15,4 +15,11 @@ class storefront extends CI_Model {
     {
         return $this->db->query("SELECT * FROM users WHERE email = ? AND password = ?  AND userlevel = '1'", array($data['email'], $data['password']))->row_array();
     }
+
+    function delete_product($id)
+    {
+        $query = $this->db->query("DELETE FROM products WHERE id = ?", array($id));
+        return $query;
+
+    }
 }

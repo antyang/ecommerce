@@ -81,6 +81,15 @@ class Main extends CI_Controller {
     		$this->load->view('admin_products');
     	}
     }
+
+//    -------- Delete Product ---------
+
+    public function delete_product($id){
+        $this->load->model('storefront');
+        $this->storefront->delete_product($id);
+        $this->load->view('admin_products');
+
+    }
 }
 
 //end of main controller

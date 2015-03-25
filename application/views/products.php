@@ -76,6 +76,11 @@
             opacity: 1 !important;
 
         }
+        img{
+            height: 75%;
+            width: 75%;
+
+        }
     </style>
 </head>
 <body>
