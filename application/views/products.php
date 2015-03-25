@@ -116,50 +116,14 @@
             </div>
             <div class="container">
                 <div class="twelve columns" style="margin-top: 5%";>
-                    <div class="product_box">
-                        <a href="#" class="osx"><img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3"></a>
-                        <a href="#" class="osx">Pineapple Shirt</a>
-                    </div>
-                    <div class="product_box">
-                        <a href="#" class="osx"><img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3"></a>
-                        <a href="#" class="osx">Pineapple Shirt</a>
-                    </div>
-                    <div class="product_box">
-                        <a href="#" class="osx"><img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3"></a>
-                        <a href="#" class="osx">Pineapple Shirt</a>
-                    </div>
-                    <div class="product_box">
-                        <a href="#" class="osx"><img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3"></a>
-                        <a href="#" class="osx">Pineapple Shirt</a>
-                    </div>
-                    <div class="product_box">
-                        <a href="#" class="osx"><img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3"></a>
-                        <a href="#" class="osx">Pineapple Shirt</a>
-                    </div>
-                    <div class="product_box">
-                        <a href="#" class="osx"><img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3"></a>
-                        <a href="#" class="osx">Pineapple Shirt</a>
-                    </div>
-                    <div class="product_box">
-                        <a href="#" class="osx"><img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3"></a>
-                        <a href="#" class="osx">Pineapple Shirt</a>
-                    </div>
-                    <div class="product_box">
-                        <a href="#" class="osx"><img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3"></a>
-                        <a href="#" class="osx">Pineapple Shirt</a>
-                    </div>
-                    <div class="product_box">
-                        <a href="#" class="osx"><img class= "first_img" src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11053057_869649466426215_3801087741494506262_n.jpg?oh=b15ee51e99fc8d3444cbc03569f16144&oe=55B551E3"></a>
-                        <a href="#" class="osx">Pineapple Shirt</a>
-                    </div>
                     <? 
                         foreach($data as $hue)
-                            // var_dump($hue);
+                            // var_dump($hue->{'image'});
                             // die();
                         {?>
                     <div class="product_box">
-                        <a href="#" class="osx"><img class= "first_img" src="<?php echo $hue['image']; ?>"></a>
-                        <a href="#" class="osx">asdf</a>
+                        <a href="#" class="osx"><img class= "first_img" src="<?= $hue->{'image'} ?>"></a>
+                        <a href="#" class="osx"><?=$hue->{'productname'}?><br>$<?=$hue->{'price'}?></a>
                     </div>
 
                     <? } ?>
