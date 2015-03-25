@@ -23,10 +23,10 @@ class Main extends CI_Controller {
 		$this->load->view('cart');
 	}
 
-	// public function dashboard()
-	// {
-	// 	$this->load->view('admin_dashboard');
-	// }
+	public function login()
+	{
+		$this->load->view('login');
+	}
 	public function admin_dashboard()
 	{
 		$this->load->view('admin_login.php');
@@ -45,7 +45,6 @@ class Main extends CI_Controller {
     	$this->load->model('storefront');
     	$data = $this->storefront->all_products();
         $this->load->view('products.php', array('data' => $data));
-        
     }
 
 
@@ -64,7 +63,7 @@ class Main extends CI_Controller {
     public function logoff()
     {
         $this->session->sess_destroy();
-        redirect('/');
+        redirect('');
     }
     public function admin_login()
     {
@@ -78,6 +77,15 @@ class Main extends CI_Controller {
     	{
     		$this->load->view('admin_products');
     	}
+    }
+
+//    -------- Delete Product ---------
+
+    public function delete_product($id){
+        $this->load->model('storefront');
+        $this->storefront->delete_product($id);
+        $this->load->view('admin_products');
+
     }
 }
 
