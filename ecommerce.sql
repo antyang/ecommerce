@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2015 at 03:17 AM
+-- Generation Time: Mar 26, 2015 at 12:33 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -28,25 +28,27 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `billings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `streetaddress` varchar(65) DEFAULT NULL,
-  `unit` varchar(45) DEFAULT NULL,
+  `address` varchar(65) DEFAULT NULL,
+  `address2` varchar(65) DEFAULT NULL,
+  `city` varchar(45) DEFAULT NULL,
+  `state` varchar(45) DEFAULT NULL,
+  `zip` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
   `users_id` int(11) NOT NULL,
-  `cities_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`,`users_id`,`cities_id`),
-  KEY `fk_addresses_users_idx` (`users_id`),
-  KEY `fk_addresses_cities1_idx` (`cities_id`)
+  PRIMARY KEY (`id`,`users_id`),
+  KEY `fk_addresses_users_idx` (`users_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `billings`
 --
 
-INSERT INTO `billings` (`id`, `streetaddress`, `unit`, `created_at`, `users_id`, `cities_id`) VALUES
-(1, '1 Infinity Loop', NULL, NULL, 0, 2),
-(2, '1980 Zanker Road', NULL, NULL, 0, 3),
-(3, '1 Hacker Way', NULL, NULL, 0, 0),
-(4, '953 Foxglove Drive', NULL, NULL, 0, 1);
+INSERT INTO `billings` (`id`, `address`, `address2`, `city`, `state`, `zip`, `created_at`, `updated_at`, `users_id`) VALUES
+(1, '1 Infinity Loop', NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(2, '1980 Zanker Road', NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(3, '1 Hacker Way', NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(4, '953 Foxglove Drive', NULL, NULL, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -57,62 +59,17 @@ INSERT INTO `billings` (`id`, `streetaddress`, `unit`, `created_at`, `users_id`,
 CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `category` varchar(255) DEFAULT NULL,
-  `products_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`,`products_id`),
-  KEY `fk_categories_products1_idx` (`products_id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `category`, `products_id`) VALUES
-(1, 'Shirt', 0),
-(2, 'Hat', 0),
-(3, NULL, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cities`
---
-
-CREATE TABLE IF NOT EXISTS `cities` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cityname` varchar(255) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `states_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`,`states_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
-
---
--- Dumping data for table `cities`
---
-
-INSERT INTO `cities` (`id`, `cityname`, `created_at`, `updated_at`, `states_id`) VALUES
-(1, 'Sunnyvale', NULL, NULL, 1),
-(2, 'Mountain View', NULL, NULL, 1),
-(3, 'San Jose', NULL, NULL, 1),
-(4, 'Las Vegas', NULL, NULL, 2),
-(5, 'Los Angeles', NULL, NULL, 1),
-(6, 'San Francisco', NULL, NULL, 1),
-(7, 'Burbank', NULL, NULL, 1),
-(8, 'Anaheim', NULL, NULL, 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cities_has_states`
---
-
-CREATE TABLE IF NOT EXISTS `cities_has_states` (
-  `cities_id` int(11) NOT NULL,
-  `states_id` int(11) NOT NULL,
-  PRIMARY KEY (`cities_id`,`states_id`),
-  KEY `fk_cities_has_states_states1_idx` (`states_id`),
-  KEY `fk_cities_has_states_cities1_idx` (`cities_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `categories` (`id`, `category`) VALUES
+(1, 'Shirt'),
+(2, 'Hat'),
+(3, 'Tanktop');
 
 -- --------------------------------------------------------
 
@@ -135,17 +92,16 @@ CREATE TABLE IF NOT EXISTS `images` (
 CREATE TABLE IF NOT EXISTS `orders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ordertotal` float DEFAULT NULL,
-  `orderstatus` int(11) DEFAULT NULL,
+  `orderstatus` varchar(45) DEFAULT NULL,
   `shippingcost` float DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `users_id` int(11) NOT NULL,
-  `addresses_id` int(11) NOT NULL,
-  `addresses_users_id` int(11) NOT NULL,
-  `addresses_cities_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`,`users_id`,`addresses_id`,`addresses_users_id`,`addresses_cities_id`),
+  `shipping_id` int(11) NOT NULL,
+  `billing_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`,`users_id`,`shipping_id`,`billing_id`),
   KEY `fk_orders_users1_idx` (`users_id`),
-  KEY `fk_orders_addresses1_idx` (`addresses_id`,`addresses_users_id`,`addresses_cities_id`)
+  KEY `fk_orders_addresses1_idx` (`shipping_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -157,6 +113,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 CREATE TABLE IF NOT EXISTS `orders_has_products` (
   `orders_id` int(11) NOT NULL,
   `products_id` int(11) NOT NULL,
+  `quantity` int(11) DEFAULT NULL,
   PRIMARY KEY (`orders_id`,`products_id`),
   KEY `fk_orders_has_products_products1_idx` (`products_id`),
   KEY `fk_orders_has_products_orders1_idx` (`orders_id`)
@@ -197,45 +154,27 @@ INSERT INTO `products` (`id`, `productname`, `stock`, `image`, `price`, `sold`, 
 
 CREATE TABLE IF NOT EXISTS `shippings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `streetaddress` varchar(65) DEFAULT NULL,
-  `unit` varchar(45) DEFAULT NULL,
+  `address` varchar(65) DEFAULT NULL,
+  `address2` varchar(45) DEFAULT NULL,
+  `city` varchar(45) DEFAULT NULL,
+  `state` varchar(45) DEFAULT NULL,
+  `zip` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
   `users_id` int(11) NOT NULL,
-  `cities_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`,`users_id`,`cities_id`),
-  KEY `fk_shipping_users1_idx` (`users_id`),
-  KEY `fk_shipping_cities1_idx` (`cities_id`)
+  PRIMARY KEY (`id`,`users_id`),
+  KEY `fk_shipping_users1_idx` (`users_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `shippings`
 --
 
-INSERT INTO `shippings` (`id`, `streetaddress`, `unit`, `created_at`, `users_id`, `cities_id`) VALUES
-(1, '1 Infinity Loop', NULL, NULL, 0, 2),
-(2, '1980 Zanker Road', NULL, NULL, 0, 3),
-(3, '1 Hacker Way', NULL, NULL, 0, 0),
-(4, '953 Foxglove Dr', NULL, NULL, 0, 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `states`
---
-
-CREATE TABLE IF NOT EXISTS `states` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `state` varchar(2) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `states`
---
-
-INSERT INTO `states` (`id`, `state`) VALUES
-(1, 'CA'),
-(2, 'NV');
+INSERT INTO `shippings` (`id`, `address`, `address2`, `city`, `state`, `zip`, `created_at`, `updated_at`, `users_id`) VALUES
+(1, '1 Infinity Loop', NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(2, '1980 Zanker Road', NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(3, '1 Hacker Way', NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(4, '953 Foxglove Dr', NULL, NULL, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -252,17 +191,20 @@ CREATE TABLE IF NOT EXISTS `users` (
   `userlevel` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+  `billings_id` int(11) NOT NULL,
+  `shippings_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`,`shippings_id`,`billings_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `userlevel`, `created_at`, `updated_at`) VALUES
-(1, 'Brian', 'Townsend', 'btownsend85@yahoo.com', '123', 1, NULL, NULL),
-(2, 'Antony', 'Yang', NULL, NULL, 1, NULL, NULL),
-(3, 'Josh', 'Phuang', NULL, NULL, 1, NULL, NULL);
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `userlevel`, `created_at`, `updated_at`, `billings_id`, `shippings_id`) VALUES
+(1, 'Brian', 'Townsend', 'btownsend85@yahoo.com', '123', 1, NULL, NULL, 4, 2),
+(2, 'Antony', 'Yang', NULL, NULL, 1, NULL, NULL, 0, 0),
+(3, 'Josh', 'Phuang', NULL, NULL, 1, NULL, NULL, 0, 0),
+(4, 'Michael', 'Choi', 'mchoi@codingdojo.com', 'dojo', 0, NULL, NULL, 2, 2);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
