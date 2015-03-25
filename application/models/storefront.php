@@ -4,12 +4,16 @@ class storefront extends CI_Model {
 
     function all_products()
     {   
-        $query = $this->db->query('SELECT * FROM products');
+        $query = $this->db->query('SELECT * FROM products LEFT JOIN categories ON products.category_id = categories.id');
         return $query->result();
     }
     function most_popular()
     {
         return $this->db->query('SELECT * FROM products ORDER BY sold DESC;')->row_array();
+    }
+    function all_category()
+    {
+        return $this->db->query('SELECT categories.category FROM categories')->result();
     }
     function category($data)
     {
@@ -36,6 +40,5 @@ class storefront extends CI_Model {
         $values = array($new_qty['quantity'], $new_qty['id']);
         $this->db->query($query, $values);
     }
-
 
 }

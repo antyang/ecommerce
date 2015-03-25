@@ -19,7 +19,10 @@ class Main extends CI_Controller {
 	}
 	public function add()
 	{
-		$this->load->view('add_product');
+		$this->load->model('storefront');
+		$categories = $this->storefront->all_category();
+		var_dump($categories);
+		$this->load->view('add_product', array('categories' => $categories));
 	}
 
 	public function cart()
