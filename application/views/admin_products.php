@@ -34,6 +34,10 @@
             background-color: black;
             height: 70px;
         }
+        img{
+            width: 50px;
+            height: 50px;
+        }
     </style>
 </head>
 <body>
@@ -77,59 +81,21 @@
         <div class="twelve columns" style="margin-top: 5%">
             <table>
                 <thead>
+
+
+                <?php foreach ($garbage as $huehue)
+                {?>
                 <tr>
-                    <th>Picture</th>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Inventory Count</th>
-                    <th>Quantity Added</th>
-                    <th>Action</th>
-                </tr>
-                <tr>
-                    <td><img src="#"></td>
-                    <td>1</td>
-                    <td>Steve Jobs</td>
-                    <td>5000</td>
-                    <td>50</td>
-                    <td><a href="#">Edit</a> <a href="/main/delete_product/2">Delete</a></td>
+                    <td><img src="<?= $huehue->{'image'} ?>""></td>
+                    <td><?= $huehue->{'id'} ?></td>
+                    <td><?= $huehue->{'productname'} ?></td>
+                    <td><?= $huehue->{'stock'} ?></td>
+                    <td><a href="#">Edit</a> <a href="/main/delete_product/<?=$huehue->{'id'}?>">Delete</a></td>
 
                 </tr>
-                <tr>
-                    <td><img src="#"></td>
-                    <td>1</td>
-                    <td>Steve Jobs</td>
-                    <td>5000</td>
-                    <td>50</td>
-                    <td><a href="#">Edit</a> <a href="#">Delete</a></td>
 
-                </tr>
-                <tr>
-                    <td><img src="#"></td>
-                    <td>1</td>
-                    <td>Steve Jobs</td>
-                    <td>5000</td>
-                    <td>50</td>
-                    <td><a href="#">Edit</a> <a href="#">Delete</a></td>
+                <?php } ?>
 
-                </tr>
-                <tr>
-                    <td><img src="#"></td>
-                    <td>1</td>
-                    <td>Steve Jobs</td>
-                    <td>5000</td>
-                    <td>50</td>
-                    <td><a href="#">Edit</a> <a href="#">Delete</a></td>
-
-                </tr>
-                <tr>
-                    <td><img src="#"></td>
-                    <td>1</td>
-                    <td>Steve Jobs</td>
-                    <td>5000</td>
-                    <td>50</td>
-                    <td><a href="#">Edit</a> <a href="#">Delete</a></td>
-
-                </tr>
 
                 </thead>
             </table>

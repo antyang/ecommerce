@@ -48,9 +48,16 @@ class Main extends CI_Controller {
     {
     	$this->load->model('storefront');
     	$data = $this->storefront->all_products();
-    	// var_dump($data);
-    	// die();
+//    	 var_dump($data);
+//    	 die();
         $this->load->view('products.php', array('data' => $data));
+    }
+
+    public function products_admin()
+    {
+        $this->load->model('storefront');
+        $garbage = $this->storefront->all_products();
+        $this->load->view('admin_products', array('garbage' => $garbage));
     }
 
 

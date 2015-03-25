@@ -25,4 +25,6 @@ class storefront extends CI_Model {
         return $query;
 
     }
+
+
 }

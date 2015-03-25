@@ -122,7 +122,7 @@
             <div class="container">
                 <div class="twelve columns" style="margin-top: 5%";>
                     <? 
-                      
+
 
                         foreach($data as $hue)
                             // var_dump($hue->{'image'});
