@@ -64,8 +64,9 @@
         </div>
     </div>
 
-
-		<h2 style="text-align:center;">Edit Product - ID 2</h2>
+<?php   	var_dump($product); ?>
+		<h2 style="text-align:center;">Edit Product - ID <?=$id?></h2>
+		<h2 style="text-align:center;"><?=$product->productname?></h2>
 		<div class="row">
 		    <div class="six columns">
 		      <label for="name">Name</label>
@@ -79,16 +80,18 @@
 			</div>
 			
 		</div>
-		<div class="row">
-				<label for="category">Categories</label>
-					<select class="five columns" id="category">
-					<option value="Option 1">Shirt</option>
-					<option value="Option 2">Hat</option>
-					<option value="Option 3">Pant</option>
-					<option value="Option 4">Key Chain</option>
-					<option value="Option 5">Belt</option>
-					<option value="Option 6">Stuff</option></select>
-		</div>
+	  <div class="row">
+	    <div class="six columns">
+	      <label for="category">Categories</label>
+	      <select class="five columns" name="category" id="category">
+	      <?php 
+	      foreach($categories as $category)
+	      { ?>
+	      	<option name="category" value="$category->category?"><?=$category->category?></option>
+	      <? } ?>
+	      </select>
+	    </div>
+	  </div>
 		<div class="row">
 			<div class="six columns">
 				<label for="new">Or add a new category</label>
@@ -114,7 +117,7 @@
 	  		</div>
 	  		<div class="three columns"><img id="pic3" src="https://igcdn-photos-b-a.akamaihd.net/hphotos-ak-xfa1/t51.2885-15/11056004_626501974117289_184839600_n.jpg" class="eleven columns" style="background-color: #ddd; color: black; border: 1px solid black;">
 	  		</div>
-	  	</div> -->
+	  	</div>
 	  	<div class="one columns">
 	  	</div>
 	  </div>

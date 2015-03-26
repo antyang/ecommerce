@@ -44,4 +44,12 @@ class storefront extends CI_Model {
         $query = $this->db->query('SELECT * FROM products WHERE id = ?', array($id));
         return $query->result();
     }
+    function add_product($data)
+    {
+        return $this->db->query("INSERT INTO products (name, ");
+    }
+    function get_product($data)
+    {
+        return $this->db->query("SELECT * FROM products WHERE products.id = ?", array($data))->row();
+    }
 }

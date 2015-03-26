@@ -47,7 +47,7 @@
                 <h3 style="border-bottom:1px solid black; width:93px;">Name</h3>
         </div>
         <div class="ten columns">
-            <h5 style="float:right;"><a href="dashboard"><i class="fa fa-user"></a></i> <a href="cart"><i class="fa fa-shopping-cart"></i></a></h5>
+            <h5 style="float:right;"><a href="/login"><i class="fa fa-user"></a></i> <a href="cart"><i class="fa fa-shopping-cart"></i></a></h5>
         </div>
     </div>
     <div class="row">
@@ -61,7 +61,7 @@
         <div class="nine columns">
             <form>
                 <input type="text" name="search" placeholder="Search">
-            <form>
+            </form>
 
         </div>
         <div class="two columns">
@@ -80,27 +80,31 @@
             <table>
                 <thead>
 
-
+                    <th></th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Current Stock</th>
+                    <th>Actions</th>
+                </thead>
                 <?php foreach ($products as $product)
                 {?>
                 <tr>
-                    <td><img src="<?= $product->{'image'} ?>""></td>
+                    <td><img src="<?= $product->{'image'} ?>"></td>
                     <td><?= $product->{'id'} ?></td>
                     <td><?= $product->{'productname'} ?></td>
                     <td><?= $product->{'stock'} ?></td>
-                    <td><a href="edit">Edit</a> <a href="/main/delete_product/<?=$product->{'id'}?>">Delete</a></td>
+                    <td><a href="edit/<?=$product->id?>">Edit</a> <a href="/main/delete_product/<?=$product->{'id'}?>">Delete</a></td>
 
                 </tr>
 
                 <?php } ?>
 
 
-                </thead>
             </table>
         </div>
 
     </div>
-    <a href="/main/logoff"><button class="button-primary">Log Off</button></a>
+    <a href="/logoff"><button class="button-primary">Log Off</button></a>
 </div>
 
 

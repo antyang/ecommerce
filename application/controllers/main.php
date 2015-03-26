@@ -13,9 +13,12 @@ class Main extends CI_Controller {
         $this->load->view('splashpage.php');
 	}
 
-	public function edit(/*$id*/)
+	public function edit($id)
 	{
-		$this->load->view('edit_product');
+		$this->load->model('storefront');
+		$product = $this->storefront->get_product($id);
+		$categories = $this->storefront->all_category();
+		$this->load->view('edit_product', array('categories' => $categories, 'id' => $id, 'product' => $product));
 	}
 	public function add()
 	{
@@ -97,7 +100,7 @@ class Main extends CI_Controller {
     }
     public function admin_login()
     {
-    	$this->load->model('admin');
+    	$this->load->model('storefront');
     	$data = $this->storefront->login_admin($this->input->post());
     	if($data==null)
     	{
@@ -106,7 +109,6 @@ class Main extends CI_Controller {
     	}
     	else
     	{
-    		var_dump($data);
     		$new_data = array($data->id, $data->first_name);
     		$this->session->set_userdata('user', $new_data);
     		if($data->userlevel == 1)
